@@ -32,24 +32,25 @@ main {
 .buttons-main {
   margin-top: 20px;
 }
+.buttons-main .button {
+  display: block;
+}
 
 .button {
-  display: block;
   margin: 15px;
   width: 220px;
   height: 50px;
   background: none;
   font-size: 20px;
+  font-family: "Montserrat", sans-serif;
   color: white;
   border-radius: 30px;
   border: 2px solid rgb(255, 225, 0);
   transition: all ease-in-out 0.2s;
 }
-
 button:hover {
-  box-shadow: 0px 0px 8px rgb(229, 225, 15);
-  font-size: 22px;
-  transform: scale(1.15);
+  box-shadow: 0px 0px 10px rgb(229, 225, 15);
+  transform: scale(1.1);
   cursor: pointer;
 }
 
@@ -83,13 +84,51 @@ footer {
   padding: 20px 0;
 }
 
+.media-container ul li {
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  margin: 0 5px;
+  text-align: center;
+}
+
+.media-container ul li a {
+  display: block;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+  font-size: 20px;
+  text-align: center;
+  line-height: 36px;
+  transition: 0.2s;
+}
+.linkedin {
+  background-color: rgb(0, 54, 250);
+}
+.linkedin:hover {
+  background-color: rgb(0, 119, 255);
+}
+.github {
+  background-color: rgb(44, 0, 104);
+}
+
+.github:hover {
+  background-color: rgb(102, 0, 255);
+}
+
+.copyright {
+  margin-top: 10px;
+  font-size: 14px;
+  font-family: "Orbitron", sans-serif;
+}
+
 .hide {
   display: none;
 }
 
 @keyframes twinkle {
   0% {
-    text-shadow: 0px -0px 10px rgb(15, 204, 229);
+    text-shadow: 0px 0px 12px rgb(15, 204, 229);
   }
   100% {
     text-shadow: 0px 0px 0px rgb(15, 204, 229);

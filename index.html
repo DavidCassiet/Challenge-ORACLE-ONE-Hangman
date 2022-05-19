@@ -6,24 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style/reset.css" />
     <link rel="stylesheet" href="style/style.css" />
+
     <script
       src="https://kit.fontawesome.com/fb210e319c.js"
       crossorigin="anonymous"
     ></script>
-
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Monoton&family=Montserrat:ital,wght@1,200&display=swap"
-      rel="stylesheet"
-    /> -->
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Bungee+Shade&family=Monofett&family=Monoton&family=Montserrat:ital,wght@1,200&family=Syncopate:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Geostar+Fill&family=Monoton&family=Montserrat&family=Orbitron&family=Oxanium:wght@200&display=swap"
       rel="stylesheet"
     />
+
     <title>Ahorcado</title>
   </head>
   <body>
@@ -41,16 +35,18 @@
         <div class="container-game">
           <div class="canvas"></div>
           <div class="buttons-game">
-            <button>Nuevo Juego</button>
-            <button onclick="desist()">Desistir</button>
+            <button class="button" onclick="newGame()">Nuevo Juego</button>
+            <button class="button" onclick="desist()">Desistir</button>
           </div>
         </div>
       </section>
       <section id="addWord" class="hide">
         <div class="container-add-word">
           <input type="text" placeholder="Ingrese palabra aquí" />
-          <button onclick="addWord()">Añadir y Comenzar Juego</button>
-          <button onclick="cancel()">Cancelar</button>
+          <button class="button" onclick="addWord()">
+            Añadir y Comenzar Juego
+          </button>
+          <button class="button" onclick="cancel()">Cancelar</button>
         </div>
       </section>
     </main>
@@ -78,5 +74,7 @@
       <p class="copyright">&copy Desarrollado por David Cassiet - 2022</p>
     </footer>
     <script src="static/app.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="static/sweetAlert.js"></script>
   </body>
 </html>
