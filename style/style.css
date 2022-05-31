@@ -1,30 +1,30 @@
 body {
+  background: linear-gradient(rgb(0, 0, 51), rgb(34, 0, 77), purple);
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  font-family: "Montserrat", sans-serif;
 }
 
 main {
-  background-color: rgb(11, 12, 46);
+  /* background-color: rgb(11, 12, 46); */
   width: 100%;
-  /* text-align: center; */
   flex: 1 0 auto;
+  background: url("../media/1.png") center top / cover no-repeat fixed; width: 100%; height: 100;
 }
 
 .container-main {
   display: flex;
   flex-direction: column;
-  height: 800px;
+  height: 830px;
   justify-content: center;
   align-items: center;
 }
 
 .title {
   color: rgb(144, 242, 255);
-  /* font-family: "Monoton", cursive; */
   font-family: "Bungee Shade", cursive;
   font-size: 120px;
-  /* text-shadow: -2px 2px 10px rgb(15, 204, 229); */
   margin-bottom: 80px;
   animation: twinkle 1s infinite alternate;
 }
@@ -38,47 +38,197 @@ main {
 
 .button {
   margin: 15px;
-  width: 220px;
+  width: 240px;
   height: 50px;
-  background: none;
+  background: rgb(43, 0, 86);
   font-size: 20px;
   font-family: "Montserrat", sans-serif;
   color: white;
   border-radius: 30px;
-  border: 2px solid rgb(255, 225, 0);
+  /* border: 2px solid rgb(255, 225, 0); */
+  /* border: 2px solid rgb(247, 0, 255); */
+  border: 2px solid rgb(0, 225, 255);
   transition: all ease-in-out 0.2s;
 }
-button:hover {
-  box-shadow: 0px 0px 10px rgb(229, 225, 15);
+.button:hover {
+  /* box-shadow: 0px 0px 10px rgb(229, 225, 15); */
+  /* background: rgba(233, 64, 255, 0.509); */
+  /* box-shadow: 0px 0px 10px rgba(255, 40, 223, 0.791); */
+  box-shadow: 0px 0px 10px rgb(15, 204, 229);
   transform: scale(1.1);
   cursor: pointer;
+}
+
+.difficulty {
+  display: flex;
+  flex-direction: column;
+  min-height: 800px;
+  justify-content: center;
+  align-items: center;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  display: inline-block;
+  /* background: rgb(8, 107, 255); */
+  background-color: rgb(122, 91, 179);
+  position: relative;
+  width: 350px;
+  height: 500px;
+  margin: 120px 50px 50px;
+  /* border: 2px solid rgb(247, 0, 255); */
+  border: 2px solid rgb(0, 225, 255);
+  border-radius: 20px;
+  text-align: center;
+  transition: all ease-in-out 0.2s;
+  /* box-shadow: -6px 10px 20px rgba(255, 40, 223, 0.59); */
+  /* box-shadow: 0px 0px 20px rgba(201, 40, 255, 0.791); */
+  box-shadow: 0px 0px 20px rgb(15, 204, 229);
+}
+
+#cardUno {
+  background-color: rgb(127, 163, 255);
+  border: 2px solid rgb(0, 225, 255);
+  box-shadow: 0px 0px 20px rgb(15, 204, 229);
+}
+
+#cardDos {
+  background-color: rgb(255, 253, 137);
+  border: 2px solid rgb(255, 251, 0);
+  box-shadow: 0px 0px 20px rgb(240, 255, 109);
+}
+
+#cardTres {
+  background-color: rgb(255, 69, 69);
+  border: 2px solid rgb(255, 0, 0);
+  box-shadow: 0px 0px 20px rgb(229, 111, 15);
+}
+
+.card:hover,
+.card:hover .img {
+  /* background: rgb(0, 183, 255); */
+  transform: scale(1.04);
+  /* box-shadow: 0px 0px 6px rgb(40, 230, 255); */
+  /* cursor: pointer; */
+}
+
+.img {
+  transition: all ease-in-out 0.2s;
+  position: absolute;
+  bottom: 36%;
+}
+.uno {
+  width: 180px;
+  height: 180px;
+  position: absolute;
+  left: 80px;
+}
+.dos {
+  width: 330px;
+  height: 330px;
+  position: absolute;
+  left: 10px;
+}
+.tres {
+  width: 420px;
+  height: 420px;
+  position: absolute;
+  left: -40px;
+}
+
+.text-container {
+  color: white;
+  /* background-color: rgb(255, 227, 202); */
+  background-color: rgb(27, 1, 48);
+  border-radius: 0 0 20px 20px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+.subtitle {
+  margin-top: 10px;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.description {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.button-game {
+  background-color: rgb(11, 12, 46);
+  color: white;
+  width: 140px;
+  height: 40px;
+  margin: 20px;
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  left: calc(50% - 75px);
+  border: 2px solid rgb(247, 0, 255);
+  border-radius: 10px;
+  transition: all ease-in-out 0.2s;
+}
+.button-game:hover {
+  background-color: rgb(91, 27, 118);
+  cursor: pointer;
+  /* transform: scale(1.04); */
 }
 
 .container-game {
   text-align: center;
 }
 
-.buttons-game button {
-  margin: 15px;
-  width: 220px;
-  height: 50px;
-  background: none;
-  font-size: 20px;
-  color: white;
-  border-radius: 30px;
-  border: 2px solid rgb(255, 225, 0);
-  transition: all ease-in-out 0.2s;
-}
-
 .container-add-word {
-  background-color: blueviolet;
+  display: flex;
+  flex-direction: column;
+  height: 800px;
+  justify-content: center;
+  align-items: center;
 }
 
-canvas {
+#rayo {
+  position: absolute;
+}
+.container-input {
+  border: 2px solid aqua;
+  background: rgb(0, 23, 87);
+  box-shadow: 0px 0px 20px rgb(15, 204, 229);
+  border-radius: 25px;
+  width: 50%;
+  height: 60%;
+}
+.input {
+  width: 96%;
+  background: none;
+  padding: 20px;
+  border: none;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-size: 30px;
+}
+.input:focus {
+  border: none;
+  outline: none;
+}
+.input::placeholder {
+  color: rgba(245, 245, 245, 0.603);
+}
+
+.buttons-addWord {
+  margin-top: 20px;
 }
 
 footer {
-  background-color: rgb(120, 120, 210);
+  /* background-color: rgb(120, 120, 210); */
+  background-color: rgb(6, 0, 32);
+  color: white;
   width: 100%;
   text-align: center;
   padding: 20px 0;
@@ -91,7 +241,6 @@ footer {
   margin: 0 5px;
   text-align: center;
 }
-
 .media-container ul li a {
   display: block;
   color: #ffffff;
@@ -111,7 +260,6 @@ footer {
 .github {
   background-color: rgb(44, 0, 104);
 }
-
 .github:hover {
   background-color: rgb(102, 0, 255);
 }

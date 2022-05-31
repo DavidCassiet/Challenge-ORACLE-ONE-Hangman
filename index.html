@@ -14,42 +14,95 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Geostar+Fill&family=Monoton&family=Montserrat&family=Orbitron&family=Oxanium:wght@200&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Geostar+Fill&family=Monoton&family=Montserrat&family=Open+Sans&family=Orbitron&family=Oxanium:wght@200&display=swap"
       rel="stylesheet"
     />
 
     <title>Ahorcado</title>
   </head>
+
   <body>
     <main>
       <section id="main">
         <div class="container-main">
+          <!-- <img id="rayo" src="media/1.png" alt=""> -->
           <h1 class="title">AHORCADO</h1>
           <div class="buttons-main">
-            <button class="button" onclick="playGame()">Iniciar Juego</button>
-            <button class="button">Agregar Palabra</button>
+            <button class="button" onclick="chooseDifficulty()">
+              Iniciar Juego
+            </button>
+            <button class="button" onclick="addWord()">Agregar Palabra</button>
           </div>
         </div>
       </section>
+
+      <section id="difficulty" class="difficulty hide">
+        <ul class="cards-container">
+          <li class="card" id="cardUno">
+            <img class="img uno" src="media/doge-1.png" alt="" />
+            <div class="text-container">
+              <h4 class="subtitle">Facil</h4>
+              <p class="description">Palabras entre 4 y 7 letras</p>
+              <button id="btnGame1" class="button-game" onclick="playGame()">
+                Jugar
+              </button>
+            </div>
+          </li>
+          <li class="card" id="cardDos">
+            <img class="img dos" src="media/doge-2.png" alt="" />
+            <div class="text-container">
+              <h4 class="subtitle">Normal</h4>
+              <p class="description">Palabras entre 8 y 11 letras</p>
+              <button id="btnGame2" class="button-game" onclick="playGame()">
+                Jugar
+              </button>
+            </div>
+          </li>
+          <li class="card" id="cardTres">
+            <img class="img tres" src="media/doge-3.png" alt="" />
+            <div class="text-container">
+              <h4 class="subtitle">Dificil</h4>
+              <p class="description">Palabras entre 12 y 16 letras</p>
+              <button id="btnGame3" class="button-game" onclick="playGame()">
+                Jugar
+              </button>
+            </div>
+          </li>
+        </ul>
+        <button class="button" onclick="home()">Volver al menu</button>
+      </section>
+
       <section id="game" class="hide">
         <div class="container-game">
-          <div class="canvas"></div>
+          <div class="canvas-container"></div>
           <div class="buttons-game">
-            <button class="button" onclick="newGame()">Nuevo Juego</button>
+            <button id="newGameButton" class="button" onclick="newGame()">
+              Nuevo Juego
+            </button>
             <button class="button" onclick="desist()">Desistir</button>
           </div>
         </div>
       </section>
+
       <section id="addWord" class="hide">
         <div class="container-add-word">
-          <input type="text" placeholder="Ingrese palabra aquí" />
-          <button class="button" onclick="addWord()">
-            Añadir y Comenzar Juego
-          </button>
-          <button class="button" onclick="cancel()">Cancelar</button>
+          <div class="container-input">
+            <input
+              class="input"
+              type="text"
+              placeholder="Ingrese palabra aquí"
+            />
+          </div>
+          <div class="buttons-addWord">
+            <button class="button" onclick="addWordAndPlay()">
+              Añadir y Comenzar
+            </button>
+            <button class="button" onclick="cancel()">Cancelar</button>
+          </div>
         </div>
       </section>
     </main>
+
     <footer>
       <div class="media-container">
         <ul>
