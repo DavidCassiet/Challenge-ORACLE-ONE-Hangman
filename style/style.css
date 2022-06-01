@@ -7,16 +7,14 @@ body {
 }
 
 main {
-  /* background-color: rgb(11, 12, 46); */
   width: 100%;
   flex: 1 0 auto;
-  background: url("../media/1.png") center top / cover no-repeat fixed; width: 100%; height: 100;
 }
 
 .container-main {
   display: flex;
   flex-direction: column;
-  height: 830px;
+  height: calc(100vh - 100px);
   justify-content: center;
   align-items: center;
 }
@@ -45,15 +43,10 @@ main {
   font-family: "Montserrat", sans-serif;
   color: white;
   border-radius: 30px;
-  /* border: 2px solid rgb(255, 225, 0); */
-  /* border: 2px solid rgb(247, 0, 255); */
   border: 2px solid rgb(0, 225, 255);
   transition: all ease-in-out 0.2s;
 }
 .button:hover {
-  /* box-shadow: 0px 0px 10px rgb(229, 225, 15); */
-  /* background: rgba(233, 64, 255, 0.509); */
-  /* box-shadow: 0px 0px 10px rgba(255, 40, 223, 0.791); */
   box-shadow: 0px 0px 10px rgb(15, 204, 229);
   transform: scale(1.1);
   cursor: pointer;
@@ -75,20 +68,15 @@ main {
 
 .card {
   display: inline-block;
-  /* background: rgb(8, 107, 255); */
   background-color: rgb(122, 91, 179);
   position: relative;
   width: 350px;
   height: 500px;
   margin: 120px 50px 50px;
-  /* border: 2px solid rgb(247, 0, 255); */
   border: 2px solid rgb(0, 225, 255);
   border-radius: 20px;
   text-align: center;
   transition: all ease-in-out 0.2s;
-  /* box-shadow: -6px 10px 20px rgba(255, 40, 223, 0.59); */
-  /* box-shadow: 0px 0px 20px rgba(201, 40, 255, 0.791); */
-  box-shadow: 0px 0px 20px rgb(15, 204, 229);
 }
 
 #cardUno {
@@ -111,10 +99,7 @@ main {
 
 .card:hover,
 .card:hover .img {
-  /* background: rgb(0, 183, 255); */
   transform: scale(1.04);
-  /* box-shadow: 0px 0px 6px rgb(40, 230, 255); */
-  /* cursor: pointer; */
 }
 
 .img {
@@ -143,7 +128,6 @@ main {
 
 .text-container {
   color: white;
-  /* background-color: rgb(255, 227, 202); */
   background-color: rgb(27, 1, 48);
   border-radius: 0 0 20px 20px;
   width: 100%;
@@ -178,7 +162,6 @@ main {
 .button-game:hover {
   background-color: rgb(91, 27, 118);
   cursor: pointer;
-  /* transform: scale(1.04); */
 }
 
 .container-game {
@@ -193,12 +176,9 @@ main {
   align-items: center;
 }
 
-#rayo {
-  position: absolute;
-}
 .container-input {
   border: 2px solid aqua;
-  background: rgb(0, 23, 87);
+  background-color: rgb(27, 1, 48);
   box-shadow: 0px 0px 20px rgb(15, 204, 229);
   border-radius: 25px;
   width: 50%;
@@ -226,8 +206,7 @@ main {
 }
 
 footer {
-  /* background-color: rgb(120, 120, 210); */
-  background-color: rgb(6, 0, 32);
+  background-color: rgb(27, 1, 48);
   color: white;
   width: 100%;
   text-align: center;
@@ -276,7 +255,7 @@ footer {
 
 @keyframes twinkle {
   0% {
-    text-shadow: 0px 0px 12px rgb(15, 204, 229);
+    text-shadow: 0px 0px 14px rgb(15, 204, 229);
   }
   100% {
     text-shadow: 0px 0px 0px rgb(15, 204, 229);

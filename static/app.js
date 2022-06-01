@@ -25,19 +25,29 @@ function addWordAndPlay() {
   const wordInput = input.value.toUpperCase();
   const wordLength = wordInput.length;
 
-  if (wordLength >= 4 && wordLength <= 16) {
+  if (
+    wordsList.includes(wordInput) ||
+    wordsList2.includes(wordInput) ||
+    wordsList3.includes(wordInput)
+  ) {
+    errorAlert(2);
+  } else if (wordInput.trim().includes(" ")) {
+    errorAlert(3);
+  } else if (!input.checkValidity()) {
+    errorAlert(4);
+  } else if (wordLength >= 4 && wordLength <= 16) {
     if (wordLength >= 4 && wordLength < 8) {
-      wordsList.push(wordInput);
+      wordsList.push(wordInput.trim());
     } else if (wordLength >= 8 && wordLength < 12) {
-      wordsList2.push(wordInput);
+      wordsList2.push(wordInput.trim());
     } else if (wordLength >= 12 && wordLength <= 16) {
-      wordsList3.push(wordInput);
+      wordsList3.push(wordInput.trim());
     }
     input.value = "";
     sectionAddWord.classList.add("hide");
     chooseDifficulty();
   } else {
-    invalid();
+    errorAlert(1);
   }
 }
 
@@ -73,7 +83,7 @@ function listenKeyboard(event) {
 
     if (correctLetters.length === word.length) {
       removeListeners();
-      personalizedAlert(youWon());
+      gameAlert(1);
     }
   } else if (letter) {
     if (!(correctLetters.includes(letter) || wrongLetters.includes(letter))) {
@@ -84,7 +94,7 @@ function listenKeyboard(event) {
 
     if (wrongLetters.length === 9) {
       removeListeners();
-      personalizedAlert(youLost());
+      gameAlert(2);
     }
   }
 }
@@ -190,7 +200,6 @@ function index(word, letter) {
 
 function drawLetter(letter, color, x, y) {
   const pencil = context();
-  // pencil.font = "Oxanium";
   pencil.font = "bold 50px 'Open Sans', sans-serif";
   pencil.fillStyle = color;
   pencil.fillText(letter, x, y);
@@ -262,10 +271,4 @@ function drawHangman(failures) {
       draw(paintBrush, 30, 440, 460, 760, 460);
       break;
   }
-}
-
-function personalizedAlert(alert) {
-  setTimeout(function () {
-    alert;
-  }, 100);
 }
