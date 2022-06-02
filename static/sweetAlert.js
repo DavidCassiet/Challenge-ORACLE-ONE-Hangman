@@ -1,24 +1,25 @@
 const gameAlert = (param) => {
-  let title;
-  let text;
-  let icon;
+  let title, text, icon, iconColor;
 
   if (param === 1) {
     title = "¡Ganaste, felicidades!";
-    text = "Que craaaa.";
+    text = "Tremendo IQ.";
     icon = "success";
   } else if (param === 2) {
     title = "¡Perdiste!";
     text = "Mejor suerte la próxima.";
     icon = "error";
+    iconColor = "rgb(170, 21, 21)";
   }
 
   Swal.fire({
     title: title,
     text: text,
     icon: icon,
+    iconColor: iconColor,
     confirmButtonText: "OK",
-    background: "rgb(224, 246, 255)",
+    background: "rgb(172, 109, 206)",
+    color: "white",
   });
 };
 
@@ -31,13 +32,15 @@ const errorAlert = (param) => {
   } else if (param === 3) {
     text = "Solo se puede ingresar una palabra.";
   } else if (param === 4) {
-    text = "Caracteres invalidos.";
+    text = "Caracteres inválidos.";
   }
   Swal.fire({
-    title: "Invalido",
+    title: "Inválido",
     text: text,
-    icon: "error",
+    icon: "warning",
+    iconColor: "rgb(255, 249, 129)",
     confirmButtonText: "OK",
-    background: "rgb(224, 246, 255)",
+    background: "rgb(172, 109, 206)",
+    color: "white",
   });
 };

@@ -20,11 +20,10 @@ main {
 }
 
 .title {
-  color: rgb(144, 242, 255);
   font-family: "Bungee Shade", cursive;
   font-size: 120px;
   margin-bottom: 80px;
-  animation: twinkle 1s infinite alternate;
+  animation: blinking 10s infinite;
 }
 
 .buttons-main {
@@ -55,7 +54,7 @@ main {
 .difficulty {
   display: flex;
   flex-direction: column;
-  min-height: 800px;
+  min-height: calc(100vh - 100px);
   justify-content: center;
   align-items: center;
 }
@@ -72,7 +71,7 @@ main {
   position: relative;
   width: 350px;
   height: 500px;
-  margin: 120px 50px 50px;
+  margin: 100px 50px 50px;
   border: 2px solid rgb(0, 225, 255);
   border-radius: 20px;
   text-align: center;
@@ -165,24 +164,27 @@ main {
 }
 
 .container-game {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 100px);
+  justify-content: center;
   text-align: center;
 }
 
 .container-add-word {
   display: flex;
   flex-direction: column;
-  height: 800px;
+  height: calc(100vh - 100px);
   justify-content: center;
   align-items: center;
 }
 
 .container-input {
-  border: 2px solid aqua;
   background-color: rgb(27, 1, 48);
-  box-shadow: 0px 0px 20px rgb(15, 204, 229);
   border-radius: 25px;
   width: 50%;
-  height: 60%;
+  height: 50%;
+  animation: blinking-container 10s infinite;
 }
 .input {
   width: 96%;
@@ -253,11 +255,120 @@ footer {
   display: none;
 }
 
-@keyframes twinkle {
+@keyframes blinking {
   0% {
-    text-shadow: 0px 0px 14px rgb(15, 204, 229);
+    color: rgb(144, 242, 255);
+    text-shadow: 0px 0px 18px rgb(15, 204, 229);
   }
-  100% {
+
+  39% {
+    color: rgb(144, 242, 255);
+    text-shadow: 0px 0px 18px rgb(15, 204, 229);
+  }
+  40% {
+    color: rgba(144, 242, 255, 0.582);
     text-shadow: 0px 0px 0px rgb(15, 204, 229);
+  }
+  42% {
+    color: rgb(144, 242, 255);
+    text-shadow: 0px 0px 18px rgb(15, 204, 229);
+  }
+
+  68% {
+    color: rgb(144, 242, 255);
+    text-shadow: 0px 0px 18px rgb(15, 204, 229);
+  }
+  69% {
+    color: rgba(144, 242, 255, 0.582);
+    text-shadow: 0px 0px 0px rgb(15, 204, 229);
+  }
+  75% {
+    color: rgba(144, 242, 255, 0.582);
+    text-shadow: 0px 0px 0px rgb(15, 204, 229);
+  }
+  76% {
+    color: rgb(144, 242, 255);
+    text-shadow: 0px 0px 10px rgb(15, 204, 229);
+  }
+  77% {
+    color: rgb(144, 242, 255);
+    text-shadow: 0px 0px 10px rgb(15, 204, 229);
+  }
+
+  78% {
+    color: rgba(144, 242, 255, 0.582);
+    text-shadow: 0px 0px 0px rgb(15, 204, 229);
+  }
+  80% {
+    color: rgba(144, 242, 255, 0.582);
+    text-shadow: 0px 0px 0px rgb(15, 204, 229);
+  }
+  81% {
+    color: rgb(144, 242, 255);
+    text-shadow: 0px 0px 18px rgb(15, 204, 229);
+  }
+
+  100% {
+    color: rgb(144, 242, 255);
+    text-shadow: 0px 0px 18px rgb(15, 204, 229);
+  }
+}
+
+@keyframes blinking-container {
+  0% {
+    border: 2px solid rgb(144, 242, 255);
+    box-shadow: 0px 0px 30px rgb(15, 204, 229);
+  }
+
+  39% {
+    border: 2px solid rgb(144, 242, 255);
+    box-shadow: 0px 0px 30px rgb(15, 204, 229);
+  }
+  40% {
+    border: 2px solid rgba(144, 242, 255, 0.582);
+    box-shadow: 0px 0px 0px rgb(15, 204, 229);
+  }
+  42% {
+    border: 2px solid rgb(144, 242, 255);
+    box-shadow: 0px 0px 30px rgb(15, 204, 229);
+  }
+
+  68% {
+    border: 2px solid rgb(144, 242, 255);
+    box-shadow: 0px 0px 30px rgb(15, 204, 229);
+  }
+  69% {
+    border: 2px solid rgba(144, 242, 255, 0.582);
+    box-shadow: 0px 0px 0px rgb(15, 204, 229);
+  }
+  75% {
+    border: 2px solid rgba(144, 242, 255, 0.582);
+    box-shadow: 0px 0px 0px rgb(15, 204, 229);
+  }
+  76% {
+    border: 2px solid rgb(144, 242, 255);
+    box-shadow: 0px 0px 10px rgb(15, 204, 229);
+  }
+  77% {
+    border: 2px solid rgb(144, 242, 255);
+    box-shadow: 0px 0px 10px rgb(15, 204, 229);
+  }
+
+  78% {
+    border: 2px solid rgba(144, 242, 255, 0.582);
+    box-shadow: 0px 0px 0px rgb(15, 204, 229);
+  }
+  80% {
+    border: 2px solid rgba(144, 242, 255, 0.582);
+    box-shadow: 0px 0px 0px rgb(15, 204, 229);
+  }
+  81% {
+    border: 2px solid rgb(144, 242, 255);
+    box-shadow: 0px 0px 30px rgb(15, 204, 229);
+  }
+
+  100% {
+    border: 2px solid rgb(144, 242, 255);
+    box-shadow: 0px 0px 30px rgb(15, 204, 229);
   }
 }
