@@ -1,40 +1,39 @@
-const main = document.querySelector("#main");
-const sectionDifficulty = document.querySelector("#difficulty");
-const sectionGame = document.querySelector("#game");
-const sectionAddWord = document.querySelector("#addWord");
+const homeSection = document.querySelector("#home");
+const difficultySection = document.querySelector("#difficulty");
+const gameSection = document.querySelector("#game");
+const addWordSection = document.querySelector("#addWord");
 const canvasContainer = document.querySelector(".canvas-container");
 const input = document.querySelector(".input");
 
 const wordsList = ["PLATO", "CELULAR", "CAMPERA"];
 const wordsList2 = ["GUITARRA", "PLATAFORMA", "CALENDARIO"];
 const wordsList3 = ["ENCICLOPEDIA", "MULTIPLICACION", "CONSTITUCION"];
-let lines, correctLetters, wrongLetters, x, word;
-let list;
+let lines, correctLetters, wrongLetters, x, word, list;
 
 function chooseDifficulty() {
-  main.classList.add("hide");
-  sectionDifficulty.classList.remove("hide");
+  homeSection.classList.add("hide");
+  difficultySection.classList.remove("hide");
 }
 
 function addWord() {
-  main.classList.add("hide");
-  sectionAddWord.classList.remove("hide");
+  homeSection.classList.add("hide");
+  addWordSection.classList.remove("hide");
 }
 
 function addWordAndPlay() {
-  const wordInput = input.value.toUpperCase();
-  const wordLength = wordInput.length;
+  let wordInput = input.value.toUpperCase(),
+    wordLength = wordInput.length;
 
   if (
     wordsList.includes(wordInput) ||
     wordsList2.includes(wordInput) ||
     wordsList3.includes(wordInput)
   ) {
-    errorAlert(2);
+    customAlert(4);
   } else if (wordInput.trim().includes(" ")) {
-    errorAlert(3);
+    customAlert(5);
   } else if (!input.checkValidity()) {
-    errorAlert(4);
+    customAlert(6);
   } else if (wordLength >= 4 && wordLength <= 16) {
     if (wordLength >= 4 && wordLength < 8) {
       wordsList.push(wordInput.trim());
@@ -44,21 +43,22 @@ function addWordAndPlay() {
       wordsList3.push(wordInput.trim());
     }
     input.value = "";
-    sectionAddWord.classList.add("hide");
+    addWordSection.classList.add("hide");
     chooseDifficulty();
   } else {
-    errorAlert(1);
+    customAlert(3);
   }
 }
 
 function cancel() {
-  sectionAddWord.classList.add("hide");
-  main.classList.remove("hide");
+  addWordSection.classList.add("hide");
+  homeSection.classList.remove("hide");
+  input.value = "";
 }
 
 function playGame() {
-  sectionDifficulty.classList.add("hide");
-  sectionGame.classList.remove("hide");
+  difficultySection.classList.add("hide");
+  gameSection.classList.remove("hide");
   createCanvas();
   game();
 }
@@ -83,7 +83,7 @@ function listenKeyboard(event) {
 
     if (correctLetters.length === word.length) {
       removeListeners();
-      gameAlert(1);
+      customAlert(1);
     }
   } else if (letter) {
     if (!(correctLetters.includes(letter) || wrongLetters.includes(letter))) {
@@ -94,20 +94,20 @@ function listenKeyboard(event) {
 
     if (wrongLetters.length === 9) {
       removeListeners();
-      gameAlert(2);
+      customAlert(2);
     }
   }
 }
 
-function home() {
-  sectionDifficulty.classList.add("hide");
-  main.classList.remove("hide");
+function goHome() {
+  difficultySection.classList.add("hide");
+  homeSection.classList.remove("hide");
 }
 
 function newGame() {
   removeListeners();
-  let canvas = document.querySelector("canvas");
-  let context = canvas.getContext("2d");
+  let canvas = document.querySelector("canvas"),
+    context = canvas.getContext("2d");
   context.clearRect(0, 0, canvas.width, canvas.height);
   context.beginPath();
   game();
@@ -117,15 +117,15 @@ function desist() {
   removeListeners();
   let canvas = document.querySelector("canvas");
   canvasContainer.removeChild(canvas);
-  sectionGame.classList.add("hide");
-  sectionDifficulty.classList.remove("hide");
+  gameSection.classList.add("hide");
+  difficultySection.classList.remove("hide");
 }
 
 function removeListeners() {
   document.removeEventListener("keypress", listenKeyboard, false);
 }
 
-function context() {
+function getCurrentContext() {
   return document.querySelector("canvas").getContext("2d");
 }
 
@@ -154,7 +154,7 @@ function chooseWord() {
 }
 
 function drawLine(word) {
-  const paintBrush = context();
+  const paintBrush = getCurrentContext();
   let x = 570 - 35 * word.length;
   const positionsList = [];
 
@@ -199,7 +199,7 @@ function index(word, letter) {
 }
 
 function drawLetter(letter, color, x, y) {
-  const pencil = context();
+  const pencil = getCurrentContext();
   pencil.font = "bold 50px 'Open Sans', sans-serif";
   pencil.fillStyle = color;
   pencil.fillText(letter, x, y);
@@ -227,7 +227,7 @@ function draw(paintBrush, thickness, xInitial, yInitial, xFinal, yFinal) {
 }
 
 function drawHangman(failures) {
-  const paintBrush = context();
+  const paintBrush = getCurrentContext();
 
   switch (failures) {
     case 1:

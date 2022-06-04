@@ -11,7 +11,7 @@ main {
   flex: 1 0 auto;
 }
 
-.container-main {
+.home {
   display: flex;
   flex-direction: column;
   height: calc(100vh - 100px);
@@ -26,10 +26,10 @@ main {
   animation: blinking 10s infinite;
 }
 
-.buttons-main {
+.home-buttons {
   margin-top: 20px;
 }
-.buttons-main .button {
+.home-buttons .button {
   display: block;
 }
 
@@ -64,7 +64,6 @@ main {
   flex-wrap: wrap;
   justify-content: center;
 }
-
 .card {
   display: inline-block;
   background-color: rgb(122, 91, 179);
@@ -77,20 +76,17 @@ main {
   text-align: center;
   transition: all ease-in-out 0.2s;
 }
-
-#cardUno {
+.easy {
   background-color: rgb(127, 163, 255);
   border: 2px solid rgb(0, 225, 255);
   box-shadow: 0px 0px 20px rgb(15, 204, 229);
 }
-
-#cardDos {
+.normal {
   background-color: rgb(255, 253, 137);
   border: 2px solid rgb(255, 251, 0);
   box-shadow: 0px 0px 20px rgb(240, 255, 109);
 }
-
-#cardTres {
+.hard {
   background-color: rgb(255, 69, 69);
   border: 2px solid rgb(255, 0, 0);
   box-shadow: 0px 0px 20px rgb(229, 111, 15);
@@ -106,19 +102,19 @@ main {
   position: absolute;
   bottom: 36%;
 }
-.uno {
+.one {
   width: 180px;
   height: 180px;
   position: absolute;
   left: 80px;
 }
-.dos {
+.two {
   width: 330px;
   height: 330px;
   position: absolute;
   left: 10px;
 }
-.tres {
+.three {
   width: 420px;
   height: 420px;
   position: absolute;
@@ -145,7 +141,7 @@ main {
   font-size: 18px;
 }
 
-.button-game {
+.game-button {
   background-color: rgb(11, 12, 46);
   color: white;
   width: 140px;
@@ -158,28 +154,29 @@ main {
   border-radius: 10px;
   transition: all ease-in-out 0.2s;
 }
-.button-game:hover {
+.game-button:hover {
   background-color: rgb(91, 27, 118);
   cursor: pointer;
 }
 
-.container-game {
+.game {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 100px);
+  min-height: calc(100vh - 100px);
   justify-content: center;
   text-align: center;
 }
 
-.container-add-word {
+.add-word {
   display: flex;
   flex-direction: column;
   height: calc(100vh - 100px);
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
-.container-input {
+.input-container {
   background-color: rgb(27, 1, 48);
   border-radius: 25px;
   width: 50%;
@@ -203,7 +200,7 @@ main {
   color: rgba(245, 245, 245, 0.603);
 }
 
-.buttons-addWord {
+.addWord-buttons {
   margin-top: 20px;
 }
 
@@ -254,6 +251,24 @@ footer {
 .hide {
   display: none;
 }
+
+/* Alert */
+
+.win-title {
+  color: rgb(49, 163, 0);
+  font-size: 40px;
+  font-weight: bold;
+}
+.lose-title {
+  color: rgb(196, 3, 3);
+  font-size: 40px;
+  font-weight: bold;
+}
+.alert-text {
+  margin-top: 16px;
+  font-size: 24px;
+}
+
 
 @keyframes blinking {
   0% {
