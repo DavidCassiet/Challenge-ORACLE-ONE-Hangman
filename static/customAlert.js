@@ -3,13 +3,13 @@ const customAlert = (param) => {
 
   if (param === 1) {
     html =
-      '<h1 class="win-title">¡Ganaste, felicidades!<h1> <p class="alert-text">Tremendo IQ.</p>';
+      '<h1 class="win-title">¡Ganaste, Felicidades!<h1> <p class="alert-text">Tremendo IQ.</p>';
     color = "black";
     padding = "40px 0";
     background = "rgb(225, 255, 215)";
   } else if (param === 2) {
     html =
-      '<h1 class="lose-title">¡Perdiste!<h1> <p class="alert-text">Mejor suerte la próxima.</p>';
+      '<h1 class="lose-title">¡Fin del juego!<h1> <p class="alert-text">Mejor suerte la próxima.</p>';
     color = "black";
     padding = "40px 0";
     background = "rgb(255, 215, 215)";
@@ -17,7 +17,7 @@ const customAlert = (param) => {
     if (param === 3) {
       text = "Solo se permiten palabras entre 4 y 16 letras.";
     } else if (param === 4) {
-      text = "La palabra ya se encuentra en el juego.";
+      text = "La palabra ya se encuentra en juego.";
     } else if (param === 5) {
       text = "Solo se puede ingresar una palabra.";
     } else if (param === 6) {

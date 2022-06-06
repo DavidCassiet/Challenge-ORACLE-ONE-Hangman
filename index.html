@@ -25,13 +25,12 @@
       <section id="home" class="home">
         <h1 class="title">AHORCADO</h1>
         <div class="home-buttons">
-          <button class="button" onclick="chooseDifficulty()">
+          <button id="playBtn" class="button playBtn" onclick="chooseDifficulty()">
             Iniciar Juego
           </button>
           <button class="button" onclick="addWord()">Agregar Palabra</button>
         </div>
       </section>
-
       <section id="difficulty" class="difficulty hide">
         <ul class="cards-container">
           <li class="card easy">
@@ -39,7 +38,7 @@
             <div class="text-container">
               <h4 class="subtitle">Facil</h4>
               <p class="description">Palabras entre 4 y 7 letras</p>
-              <button id="btnGame1" class="game-button" onclick="playGame()">
+              <button id="difficultyBtn1" class="difficulty-button" onclick="playGame()">
                 Jugar
               </button>
             </div>
@@ -49,7 +48,7 @@
             <div class="text-container">
               <h4 class="subtitle">Normal</h4>
               <p class="description">Palabras entre 8 y 11 letras</p>
-              <button id="btnGame2" class="game-button" onclick="playGame()">
+              <button id="difficultyBtn2" class="difficulty-button" onclick="playGame()">
                 Jugar
               </button>
             </div>
@@ -59,7 +58,7 @@
             <div class="text-container">
               <h4 class="subtitle">Dificil</h4>
               <p class="description">Palabras entre 12 y 16 letras</p>
-              <button id="btnGame3" class="game-button" onclick="playGame()">
+              <button id="difficultyBtn3" class="difficulty-button" onclick="playGame()">
                 Jugar
               </button>
             </div>
@@ -67,7 +66,6 @@
         </ul>
         <button class="button" onclick="goHome()">Volver al menu</button>
       </section>
-
       <section id="game" class="game hide">
         <div class="canvas-container"></div>
         <div class="game-buttons">
@@ -75,7 +73,6 @@
           <button class="button" onclick="desist()">Desistir</button>
         </div>
       </section>
-
       <section id="addWord" class="add-word hide">
         <div class="input-container">
           <input
@@ -85,6 +82,7 @@
             pattern="^[A-Za-z ]+$"
             spellcheck="false"
           />
+          <p class="input-info"><i class="fa-solid fa-circle-info"></i> Solo se permiten palabras de 4 a 16 letras.</p>
         </div>
         <div class="addWord-buttons">
           <button class="button" onclick="addWordAndPlay()">
@@ -94,7 +92,6 @@
         </div>
       </section>
     </main>
-
     <footer>
       <div class="media-container">
         <ul>

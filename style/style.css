@@ -5,12 +5,12 @@ body {
   flex-direction: column;
   font-family: "Montserrat", sans-serif;
 }
-
 main {
   width: 100%;
   flex: 1 0 auto;
 }
 
+/* Home */
 .home {
   display: flex;
   flex-direction: column;
@@ -32,7 +32,6 @@ main {
 .home-buttons .button {
   display: block;
 }
-
 .button {
   margin: 15px;
   width: 240px;
@@ -49,8 +48,17 @@ main {
   box-shadow: 0px 0px 10px rgb(15, 204, 229);
   transform: scale(1.1);
   cursor: pointer;
+  animation: none;
 }
 
+.playBtn {
+  animation: btnAnimation 1s infinite;
+}
+.button:hover .playBtn {
+  animation: none !important;
+}
+
+/* Difficulty */
 .difficulty {
   display: flex;
   flex-direction: column;
@@ -91,7 +99,6 @@ main {
   border: 2px solid rgb(255, 0, 0);
   box-shadow: 0px 0px 20px rgb(229, 111, 15);
 }
-
 .card:hover,
 .card:hover .img {
   transform: scale(1.04);
@@ -129,19 +136,17 @@ main {
   position: absolute;
   bottom: 0;
 }
-
 .subtitle {
   margin-top: 10px;
   font-size: 26px;
   font-weight: bold;
 }
-
 .description {
   margin-top: 10px;
   font-size: 18px;
 }
 
-.game-button {
+.difficulty-button {
   background-color: rgb(11, 12, 46);
   color: white;
   width: 140px;
@@ -154,11 +159,12 @@ main {
   border-radius: 10px;
   transition: all ease-in-out 0.2s;
 }
-.game-button:hover {
+.difficulty-button:hover {
   background-color: rgb(91, 27, 118);
   cursor: pointer;
 }
 
+/* Game */
 .game {
   display: flex;
   flex-direction: column;
@@ -167,6 +173,7 @@ main {
   text-align: center;
 }
 
+/* Add word */
 .add-word {
   display: flex;
   flex-direction: column;
@@ -178,8 +185,10 @@ main {
 
 .input-container {
   background-color: rgb(27, 1, 48);
+  position: relative;
   border-radius: 25px;
-  width: 50%;
+  width: 45%;
+  min-width: 400px;
   height: 50%;
   animation: blinking-container 10s infinite;
 }
@@ -199,11 +208,19 @@ main {
 .input::placeholder {
   color: rgba(245, 245, 245, 0.603);
 }
+.input-info {
+  color: rgba(149, 174, 212, 0.759);
+  text-align: start;
+  position: absolute;
+  bottom: 0;
+  margin: 20px;
+}
 
 .addWord-buttons {
   margin-top: 20px;
 }
 
+/* Footer */
 footer {
   background-color: rgb(27, 1, 48);
   color: white;
@@ -215,7 +232,6 @@ footer {
 .media-container ul li {
   display: inline-block;
   width: 36px;
-  height: 36px;
   margin: 0 5px;
   text-align: center;
 }
@@ -226,7 +242,7 @@ footer {
   border-radius: 10px;
   font-size: 20px;
   text-align: center;
-  line-height: 36px;
+  line-height: 34px;
   transition: 0.2s;
 }
 .linkedin {
@@ -248,12 +264,12 @@ footer {
   font-family: "Orbitron", sans-serif;
 }
 
+/* Hide section */
 .hide {
   display: none;
 }
 
 /* Alert */
-
 .win-title {
   color: rgb(49, 163, 0);
   font-size: 40px;
@@ -269,13 +285,11 @@ footer {
   font-size: 24px;
 }
 
-
 @keyframes blinking {
   0% {
     color: rgb(144, 242, 255);
     text-shadow: 0px 0px 18px rgb(15, 204, 229);
   }
-
   39% {
     color: rgb(144, 242, 255);
     text-shadow: 0px 0px 18px rgb(15, 204, 229);
@@ -288,7 +302,6 @@ footer {
     color: rgb(144, 242, 255);
     text-shadow: 0px 0px 18px rgb(15, 204, 229);
   }
-
   68% {
     color: rgb(144, 242, 255);
     text-shadow: 0px 0px 18px rgb(15, 204, 229);
@@ -302,14 +315,13 @@ footer {
     text-shadow: 0px 0px 0px rgb(15, 204, 229);
   }
   76% {
-    color: rgb(144, 242, 255);
+    color: rgba(144, 242, 255, 0.8);
     text-shadow: 0px 0px 10px rgb(15, 204, 229);
   }
   77% {
-    color: rgb(144, 242, 255);
+    color: rgba(144, 242, 255, 0.8);
     text-shadow: 0px 0px 10px rgb(15, 204, 229);
   }
-
   78% {
     color: rgba(144, 242, 255, 0.582);
     text-shadow: 0px 0px 0px rgb(15, 204, 229);
@@ -322,19 +334,16 @@ footer {
     color: rgb(144, 242, 255);
     text-shadow: 0px 0px 18px rgb(15, 204, 229);
   }
-
   100% {
     color: rgb(144, 242, 255);
     text-shadow: 0px 0px 18px rgb(15, 204, 229);
   }
 }
-
 @keyframes blinking-container {
   0% {
     border: 2px solid rgb(144, 242, 255);
     box-shadow: 0px 0px 30px rgb(15, 204, 229);
   }
-
   39% {
     border: 2px solid rgb(144, 242, 255);
     box-shadow: 0px 0px 30px rgb(15, 204, 229);
@@ -347,7 +356,6 @@ footer {
     border: 2px solid rgb(144, 242, 255);
     box-shadow: 0px 0px 30px rgb(15, 204, 229);
   }
-
   68% {
     border: 2px solid rgb(144, 242, 255);
     box-shadow: 0px 0px 30px rgb(15, 204, 229);
@@ -361,14 +369,13 @@ footer {
     box-shadow: 0px 0px 0px rgb(15, 204, 229);
   }
   76% {
-    border: 2px solid rgb(144, 242, 255);
-    box-shadow: 0px 0px 10px rgb(15, 204, 229);
+    border: 2px solid rgba(144, 242, 255, 0.604);
+    box-shadow: 0px 0px 15px rgb(15, 204, 229);
   }
   77% {
     border: 2px solid rgb(144, 242, 255);
-    box-shadow: 0px 0px 10px rgb(15, 204, 229);
+    box-shadow: 0px 0px 15px rgb(15, 204, 229);
   }
-
   78% {
     border: 2px solid rgba(144, 242, 255, 0.582);
     box-shadow: 0px 0px 0px rgb(15, 204, 229);
@@ -381,9 +388,19 @@ footer {
     border: 2px solid rgb(144, 242, 255);
     box-shadow: 0px 0px 30px rgb(15, 204, 229);
   }
-
   100% {
     border: 2px solid rgb(144, 242, 255);
     box-shadow: 0px 0px 30px rgb(15, 204, 229);
+  }
+}
+@keyframes btnAnimation {
+  0% {
+    transform: none;
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: none;
   }
 }

@@ -1,13 +1,34 @@
-const homeSection = document.querySelector("#home");
-const difficultySection = document.querySelector("#difficulty");
-const gameSection = document.querySelector("#game");
-const addWordSection = document.querySelector("#addWord");
-const canvasContainer = document.querySelector(".canvas-container");
-const input = document.querySelector(".input");
+const homeSection = document.querySelector("#home"),
+  difficultySection = document.querySelector("#difficulty"),
+  gameSection = document.querySelector("#game"),
+  addWordSection = document.querySelector("#addWord"),
+  canvasContainer = document.querySelector(".canvas-container"),
+  input = document.querySelector(".input");
 
-const wordsList = ["PLATO", "CELULAR", "CAMPERA"];
-const wordsList2 = ["GUITARRA", "PLATAFORMA", "CALENDARIO"];
-const wordsList3 = ["ENCICLOPEDIA", "MULTIPLICACION", "CONSTITUCION"];
+const wordsList = [
+    "PLATO",
+    "CELULAR",
+    "CAMPERA",
+    "MONTAÑA",
+    "VIDRIO",
+    "BUITRE",
+  ],
+  wordsList2 = [
+    "GUITARRA",
+    "PLATAFORMA",
+    "CALENDARIO",
+    "ALFOMBRA",
+    "ESTRUCTURA",
+    "CAMPAMENTO",
+  ],
+  wordsList3 = [
+    "ENCICLOPEDIA",
+    "MULTIPLICACION",
+    "CONSTITUCION",
+    "PARALELOGRAMO",
+    "RADIOACTIVIDAD",
+    "ESTABLECIMIENTO",
+  ];
 let lines, correctLetters, wrongLetters, x, word, list;
 
 function chooseDifficulty() {
@@ -80,7 +101,6 @@ function listenKeyboard(event) {
 
   if (indexes && !correctLetters.includes(letter)) {
     drawCorrectLetter(indexes, letter, lines, correctLetters);
-
     if (correctLetters.length === word.length) {
       removeListeners();
       customAlert(1);
@@ -91,7 +111,6 @@ function listenKeyboard(event) {
     }
     wrongLetters.push(letter);
     drawHangman(wrongLetters.length);
-
     if (wrongLetters.length === 9) {
       removeListeners();
       customAlert(2);
@@ -138,29 +157,27 @@ function createCanvas() {
 
 function chooseWord() {
   switch (event.target.id) {
-    case "btnGame1":
+    case "difficultyBtn1":
       list = wordsList;
       break;
-    case "btnGame2":
+    case "difficultyBtn2":
       list = wordsList2;
       break;
-    case "btnGame3":
+    case "difficultyBtn3":
       list = wordsList3;
       break;
   }
   let index = Math.round(Math.random() * (list.length - 1));
-  let word = list[index];
-  return word;
+  return list[index];
 }
 
 function drawLine(word) {
-  const paintBrush = getCurrentContext();
+  const paintBrush = getCurrentContext(),
+    positionsList = [];
   let x = 570 - 35 * word.length;
-  const positionsList = [];
 
   for (let i = 0; i < word.length; i++) {
-    paintBrush.fillStyle = "rgb(26, 248, 255)";
-    paintBrush.fillRect(x, 580, 60, 4);
+    draw(paintBrush, 4, x, 580, x + 60, 580);
     positionsList.push(x);
     x += 80;
   }
