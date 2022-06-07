@@ -5,12 +5,6 @@ body {
     rgb(0, 21, 83) 66.67%,
     rgb(0, 21, 83) 100%
   );
-  /* background-image: linear-gradient(
-    0,
-    #fb48fb 0,
-    #002789 66.67%,
-    #001b76 100%
-  ); */
   display: flex;
   min-height: 100vh;
   flex-direction: column;
@@ -35,9 +29,8 @@ main {
   font-size: 120px;
   margin-bottom: 40px;
   animation: blinking 10s infinite, blinking-container2 10s infinite;
-  /* border: 10px double rgb(176, 255, 255);
-  box-shadow: 0px 0px 30px turquoise; */
-  padding: 40px;
+  border-radius: 80px;
+  padding: 20px 40px 40px;
 }
 
 .home-buttons {
@@ -315,6 +308,7 @@ footer {
   font-size: 24px;
 }
 
+/* Animations */
 @keyframes blinking {
   0% {
     color: rgb(176, 242, 250);
