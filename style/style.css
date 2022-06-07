@@ -1,5 +1,16 @@
 body {
-  background: linear-gradient(rgb(0, 0, 51), rgb(34, 0, 77), purple);
+  background: linear-gradient(
+    0,
+    rgb(255, 132, 255) 0,
+    rgb(0, 21, 83) 66.67%,
+    rgb(0, 21, 83) 100%
+  );
+  /* background-image: linear-gradient(
+    0,
+    #fb48fb 0,
+    #002789 66.67%,
+    #001b76 100%
+  ); */
   display: flex;
   min-height: 100vh;
   flex-direction: column;
@@ -22,8 +33,11 @@ main {
 .title {
   font-family: "Bungee Shade", cursive;
   font-size: 120px;
-  margin-bottom: 80px;
-  animation: blinking 10s infinite;
+  margin-bottom: 40px;
+  animation: blinking 10s infinite, blinking-container2 10s infinite;
+  /* border: 10px double rgb(176, 255, 255);
+  box-shadow: 0px 0px 30px turquoise; */
+  padding: 40px;
 }
 
 .home-buttons {
@@ -36,26 +50,23 @@ main {
   margin: 15px;
   width: 240px;
   height: 50px;
-  background: rgb(43, 0, 86);
+  background: rgba(0, 48, 92, 0.611);
   font-size: 20px;
   font-family: "Montserrat", sans-serif;
   color: white;
   border-radius: 30px;
-  border: 2px solid rgb(0, 225, 255);
+  border: 2px solid rgb(141, 242, 255);
   transition: all ease-in-out 0.2s;
 }
 .button:hover {
-  box-shadow: 0px 0px 10px rgb(15, 204, 229);
+  box-shadow: 0px 0px 10px rgb(71, 177, 253);
   transform: scale(1.1);
   cursor: pointer;
-  animation: none;
+  animation: none !important;
 }
 
-.playBtn {
+#playBtn {
   animation: btnAnimation 1s infinite;
-}
-.button:hover .playBtn {
-  animation: none !important;
 }
 
 /* Difficulty */
@@ -74,40 +85,59 @@ main {
 }
 .card {
   display: inline-block;
-  background-color: rgb(122, 91, 179);
   position: relative;
   width: 350px;
   height: 500px;
   margin: 100px 50px 50px;
-  border: 2px solid rgb(0, 225, 255);
+  border: 2px solid rgb(207, 207, 207);
   border-radius: 20px;
   text-align: center;
   transition: all ease-in-out 0.2s;
 }
 .easy {
-  background-color: rgb(127, 163, 255);
-  border: 2px solid rgb(0, 225, 255);
-  box-shadow: 0px 0px 20px rgb(15, 204, 229);
+  background-color: rgba(153, 224, 255, 0.7);
+}
+.easy:hover {
+  background-color: rgb(153, 224, 255);
+  border: 2px solid rgb(192, 248, 255);
+  box-shadow: 0px 0px 20px rgb(19, 228, 255);
 }
 .normal {
-  background-color: rgb(255, 253, 137);
-  border: 2px solid rgb(255, 251, 0);
-  box-shadow: 0px 0px 20px rgb(240, 255, 109);
+  background-color: rgb(255, 252, 170, 0.7);
+}
+.normal:hover {
+  background-color: rgb(255, 252, 170);
+  border: 2px solid rgb(255, 255, 191);
+  box-shadow: 0px 0px 20px rgb(251, 255, 33);
 }
 .hard {
-  background-color: rgb(255, 69, 69);
-  border: 2px solid rgb(255, 0, 0);
-  box-shadow: 0px 0px 20px rgb(229, 111, 15);
+  background-color: rgb(255, 101, 101, 0.7);
+}
+.hard:hover {
+  background-color: rgb(255, 101, 101);
+  border: 2px solid rgb(255, 207, 207);
+  box-shadow: 0px 0px 20px rgb(255, 18, 18);
 }
 .card:hover,
 .card:hover .img {
   transform: scale(1.04);
+  filter: none;
+}
+.card:hover .sub-easy {
+  color: rgb(19, 228, 255);
+}
+.card:hover .sub-normal {
+  color: rgb(251, 255, 33);
+}
+.card:hover .sub-hard {
+  color: rgb(255, 18, 18);
 }
 
 .img {
   transition: all ease-in-out 0.2s;
   position: absolute;
   bottom: 36%;
+  filter: brightness(40%);
 }
 .one {
   width: 180px;
@@ -130,7 +160,7 @@ main {
 
 .text-container {
   color: white;
-  background-color: rgb(27, 1, 48);
+  background-color: rgb(29, 7, 66);
   border-radius: 0 0 20px 20px;
   width: 100%;
   position: absolute;
@@ -155,7 +185,7 @@ main {
   font-size: 20px;
   font-family: "Montserrat", sans-serif;
   left: calc(50% - 75px);
-  border: 2px solid rgb(247, 0, 255);
+  border: 2px solid rgb(250, 108, 255);
   border-radius: 10px;
   transition: all ease-in-out 0.2s;
 }
@@ -184,7 +214,7 @@ main {
 }
 
 .input-container {
-  background-color: rgb(27, 1, 48);
+  background-color: rgb(36, 9, 82);
   position: relative;
   border-radius: 25px;
   width: 45%;
@@ -209,7 +239,7 @@ main {
   color: rgba(245, 245, 245, 0.603);
 }
 .input-info {
-  color: rgba(149, 174, 212, 0.759);
+  color: rgb(149, 174, 212);
   text-align: start;
   position: absolute;
   bottom: 0;
@@ -222,7 +252,7 @@ main {
 
 /* Footer */
 footer {
-  background-color: rgb(27, 1, 48);
+  background-color: rgb(29, 7, 66);
   color: white;
   width: 100%;
   text-align: center;
@@ -246,16 +276,16 @@ footer {
   transition: 0.2s;
 }
 .linkedin {
-  background-color: rgb(0, 54, 250);
+  background-color: rgb(57, 100, 255);
 }
 .linkedin:hover {
-  background-color: rgb(0, 119, 255);
+  background-color: rgb(56, 149, 255);
 }
 .github {
-  background-color: rgb(44, 0, 104);
+  background-color: rgb(70, 0, 113);
 }
 .github:hover {
-  background-color: rgb(102, 0, 255);
+  background-color: rgb(108, 35, 172);
 }
 
 .copyright {
@@ -287,77 +317,77 @@ footer {
 
 @keyframes blinking {
   0% {
-    color: rgb(144, 242, 255);
-    text-shadow: 0px 0px 18px rgb(15, 204, 229);
+    color: rgb(176, 242, 250);
+    text-shadow: 0px 0px 30px rgb(107, 196, 255);
   }
   39% {
-    color: rgb(144, 242, 255);
-    text-shadow: 0px 0px 18px rgb(15, 204, 229);
+    color: rgb(176, 242, 250);
+    text-shadow: 0px 0px 30px rgb(107, 196, 255);
   }
   40% {
-    color: rgba(144, 242, 255, 0.582);
+    color: rgb(0, 166, 255);
     text-shadow: 0px 0px 0px rgb(15, 204, 229);
   }
   42% {
-    color: rgb(144, 242, 255);
-    text-shadow: 0px 0px 18px rgb(15, 204, 229);
+    color: rgb(176, 242, 250);
+    text-shadow: 0px 0px 30px rgb(107, 196, 255);
   }
   68% {
-    color: rgb(144, 242, 255);
-    text-shadow: 0px 0px 18px rgb(15, 204, 229);
+    color: rgb(176, 242, 250);
+    text-shadow: 0px 0px 30px rgb(107, 196, 255);
   }
   69% {
-    color: rgba(144, 242, 255, 0.582);
+    color: rgb(0, 166, 255);
     text-shadow: 0px 0px 0px rgb(15, 204, 229);
   }
   75% {
-    color: rgba(144, 242, 255, 0.582);
+    color: rgb(0, 166, 255);
     text-shadow: 0px 0px 0px rgb(15, 204, 229);
   }
   76% {
     color: rgba(144, 242, 255, 0.8);
-    text-shadow: 0px 0px 10px rgb(15, 204, 229);
+    text-shadow: 0px 0px 16px rgb(15, 204, 229);
   }
   77% {
     color: rgba(144, 242, 255, 0.8);
-    text-shadow: 0px 0px 10px rgb(15, 204, 229);
+    text-shadow: 0px 0px 16px rgb(15, 204, 229);
   }
   78% {
-    color: rgba(144, 242, 255, 0.582);
+    color: rgb(0, 166, 255);
     text-shadow: 0px 0px 0px rgb(15, 204, 229);
   }
   80% {
-    color: rgba(144, 242, 255, 0.582);
+    color: rgb(0, 166, 255);
     text-shadow: 0px 0px 0px rgb(15, 204, 229);
   }
   81% {
-    color: rgb(144, 242, 255);
-    text-shadow: 0px 0px 18px rgb(15, 204, 229);
+    color: rgb(176, 242, 250);
+    text-shadow: 0px 0px 30px rgb(107, 196, 255);
   }
   100% {
-    color: rgb(144, 242, 255);
-    text-shadow: 0px 0px 18px rgb(15, 204, 229);
+    color: rgb(176, 242, 250);
+    text-shadow: 0px 0px 30px rgb(107, 196, 255);
   }
 }
 @keyframes blinking-container {
   0% {
-    border: 2px solid rgb(144, 242, 255);
+    border: 2px solid rgb(176, 242, 250);
     box-shadow: 0px 0px 30px rgb(15, 204, 229);
   }
   39% {
-    border: 2px solid rgb(144, 242, 255);
+    border: 2px solid rgb(176, 242, 250);
     box-shadow: 0px 0px 30px rgb(15, 204, 229);
   }
   40% {
-    border: 2px solid rgba(144, 242, 255, 0.582);
+    border: 2px solid rgb(0, 182, 207);
     box-shadow: 0px 0px 0px rgb(15, 204, 229);
   }
   42% {
-    border: 2px solid rgb(144, 242, 255);
+    border: 2px solid rgb(176, 242, 250);
     box-shadow: 0px 0px 30px rgb(15, 204, 229);
   }
   68% {
-    border: 2px solid rgb(144, 242, 255);
+    border: 2px solid rgb(176, 242, 250);
     box-shadow: 0px 0px 30px rgb(15, 204, 229);
   }
   69% {
@@ -373,7 +403,7 @@ footer {
     box-shadow: 0px 0px 15px rgb(15, 204, 229);
   }
   77% {
-    border: 2px solid rgb(144, 242, 255);
+    border: 2px solid rgb(176, 242, 250);
     box-shadow: 0px 0px 15px rgb(15, 204, 229);
   }
   78% {
@@ -385,12 +415,66 @@ footer {
     box-shadow: 0px 0px 0px rgb(15, 204, 229);
   }
   81% {
-    border: 2px solid rgb(144, 242, 255);
+    border: 2px solid rgb(176, 242, 250);
     box-shadow: 0px 0px 30px rgb(15, 204, 229);
   }
   100% {
-    border: 2px solid rgb(144, 242, 255);
+    border: 2px solid rgb(176, 242, 250);
     box-shadow: 0px 0px 30px rgb(15, 204, 229);
+  }
+}
+@keyframes blinking-container2 {
+  0% {
+    border: 10px double rgb(250, 176, 245);
+    box-shadow: 0px 0px 30px rgb(229, 15, 229);
+  }
+  39% {
+    border: 10px double rgb(250, 176, 245);
+    box-shadow: 0px 0px 30px rgb(229, 15, 229);
+  }
+  40% {
+    border: 10px double rgba(255, 144, 249, 0.582);
+    box-shadow: 0px 0px 0px rgb(229, 15, 229);
+  }
+  42% {
+    border: 10px double rgb(250, 176, 245);
+    box-shadow: 0px 0px 30px rgb(229, 15, 229);
+  }
+  68% {
+    border: 10px double rgb(250, 176, 245);
+    box-shadow: 0px 0px 30px rgb(229, 15, 229);
+  }
+  69% {
+    border: 10px double rgba(255, 144, 249, 0.582);
+    box-shadow: 0px 0px 0px rgb(229, 15, 229);
+  }
+  75% {
+    border: 10px double rgba(255, 144, 249, 0.582);
+    box-shadow: 0px 0px 0px rgb(229, 15, 229);
+  }
+  76% {
+    border: 10px double rgba(255, 144, 253, 0.7);
+    box-shadow: 0px 0px 15px rgb(229, 15, 229);
+  }
+  77% {
+    border: 10px double rgb(255, 144, 253, 0.7);
+    box-shadow: 0px 0px 15px rgb(229, 15, 229);
+  }
+  78% {
+    border: 10px double rgba(255, 144, 249, 0.582);
+    box-shadow: 0px 0px 0px rgb(229, 15, 229);
+  }
+  80% {
+    border: 10px double rgba(255, 144, 249, 0.582);
+    box-shadow: 0px 0px 0px rgb(229, 15, 229);
+  }
+  81% {
+    border: 10px double rgb(250, 176, 245);
+    box-shadow: 0px 0px 30px rgb(229, 15, 229);
+  }
+  100% {
+    border: 10px double rgb(250, 176, 245);
+    box-shadow: 0px 0px 30px rgb(229, 15, 229);
   }
 }
 @keyframes btnAnimation {

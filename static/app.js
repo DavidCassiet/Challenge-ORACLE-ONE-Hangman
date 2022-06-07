@@ -5,7 +5,7 @@ const homeSection = document.querySelector("#home"),
   canvasContainer = document.querySelector(".canvas-container"),
   input = document.querySelector(".input");
 
-const wordsList = [
+const wordsList1 = [
     "PLATO",
     "CELULAR",
     "CAMPERA",
@@ -46,7 +46,7 @@ function addWordAndPlay() {
     wordLength = wordInput.length;
 
   if (
-    wordsList.includes(wordInput) ||
+    wordsList1.includes(wordInput) ||
     wordsList2.includes(wordInput) ||
     wordsList3.includes(wordInput)
   ) {
@@ -57,7 +57,7 @@ function addWordAndPlay() {
     customAlert(6);
   } else if (wordLength >= 4 && wordLength <= 16) {
     if (wordLength >= 4 && wordLength < 8) {
-      wordsList.push(wordInput.trim());
+      wordsList1.push(wordInput.trim());
     } else if (wordLength >= 8 && wordLength < 12) {
       wordsList2.push(wordInput.trim());
     } else if (wordLength >= 12 && wordLength <= 16) {
@@ -158,7 +158,7 @@ function createCanvas() {
 function chooseWord() {
   switch (event.target.id) {
     case "difficultyBtn1":
-      list = wordsList;
+      list = wordsList1;
       break;
     case "difficultyBtn2":
       list = wordsList2;
@@ -174,7 +174,7 @@ function chooseWord() {
 function drawLine(word) {
   const paintBrush = getCurrentContext(),
     positionsList = [];
-  let x = 570 - 35 * word.length;
+  let x = 600 - 39 * word.length;
 
   for (let i = 0; i < word.length; i++) {
     draw(paintBrush, 4, x, 580, x + 60, 580);
@@ -230,7 +230,7 @@ function drawCorrectLetter(indexes, letter, x, correctLetters) {
 }
 
 function drawWrongLetter(letter, x) {
-  drawLetter(letter, "rgb(255, 0, 158)", x, 660);
+  drawLetter(letter, "rgb(255, 0, 120)", x, 660);
   return (x += 50);
 }
 
