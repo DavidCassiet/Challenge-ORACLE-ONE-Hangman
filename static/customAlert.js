@@ -8,8 +8,10 @@ const customAlert = (param) => {
     padding = "40px 0";
     background = "rgb(225, 255, 215)";
   } else if (param === 2) {
-    html =
-      '<h1 class="lose-title">¡Fin del juego!<h1> <p class="alert-text">Mejor suerte la próxima.</p>';
+    html = `
+    <h1 class="lose-title">¡Fin del juego!<h1> 
+    <p class="alert-text">La palabra era: <b>${word}</b></p>
+    `;
     color = "black";
     padding = "40px 0";
     background = "rgb(255, 215, 215)";

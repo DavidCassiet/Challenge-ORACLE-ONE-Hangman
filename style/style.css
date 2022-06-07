@@ -240,7 +240,7 @@ main {
 }
 
 .addWord-buttons {
-  margin-top: 20px;
+  margin-top: 60px;
 }
 
 /* Footer */
@@ -283,7 +283,7 @@ footer {
 
 .copyright {
   margin-top: 10px;
-  font-size: 14px;
+  font-size: 12px;
   font-family: "Orbitron", sans-serif;
 }
 
@@ -294,7 +294,7 @@ footer {
 
 /* Alert */
 .win-title {
-  color: rgb(49, 163, 0);
+  color: rgb(52, 175, 0);
   font-size: 40px;
   font-weight: bold;
 }
@@ -306,6 +306,10 @@ footer {
 .alert-text {
   margin-top: 16px;
   font-size: 24px;
+}
+.alert-text b {
+  color: rgb(255, 0, 0);
+  font-weight: bold;
 }
 
 /* Animations */
