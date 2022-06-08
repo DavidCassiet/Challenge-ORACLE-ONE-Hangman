@@ -30,6 +30,7 @@ const wordsList1 = [
     "ESTABLECIMIENTO",
   ];
 let lines, correctLetters, wrongLetters, x, word, list;
+let pencil;
 
 function chooseDifficulty() {
   homeSection.classList.add("hide");
@@ -81,6 +82,10 @@ function playGame() {
   difficultySection.classList.add("hide");
   gameSection.classList.remove("hide");
   createCanvas();
+
+  pencil = getCurrentContext();
+  pencil.font = "bold 50px 'Open Sans', sans-serif";
+
   game();
 }
 
@@ -89,7 +94,7 @@ function game() {
   lines = drawLine(word);
   correctLetters = [];
   wrongLetters = [];
-  x = 400;
+  x = 390;
   drawHangman();
   document.addEventListener("keypress", listenKeyboard);
 }
@@ -168,6 +173,9 @@ function chooseWord() {
       break;
   }
   let index = Math.round(Math.random() * (list.length - 1));
+  while (word === list[index]) {
+    index = Math.round(Math.random() * (list.length - 1));
+  }
   return list[index];
 }
 
@@ -216,22 +224,25 @@ function index(word, letter) {
 }
 
 function drawLetter(letter, color, x, y) {
-  const pencil = getCurrentContext();
-  pencil.font = "bold 50px 'Open Sans', sans-serif";
   pencil.fillStyle = color;
   pencil.fillText(letter, x, y);
 }
 
 function drawCorrectLetter(indexes, letter, x, correctLetters) {
   indexes.forEach((index) => {
-    drawLetter(letter, "rgb(255, 225, 0)", x[index] + 15, 570);
+    drawLetter(
+      letter,
+      "rgb(255, 225, 0)",
+      x[index] + (30 - pencil.measureText(letter).width / 2),
+      570
+    );
     correctLetters.push(letter);
   });
 }
 
 function drawWrongLetter(letter, x) {
   drawLetter(letter, "rgb(255, 0, 120)", x, 660);
-  return (x += 50);
+  return (x += pencil.measureText(letter).width + 15);
 }
 
 function draw(paintBrush, thickness, xInitial, yInitial, xFinal, yFinal) {

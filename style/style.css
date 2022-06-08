@@ -1,7 +1,7 @@
 body {
   background: linear-gradient(
     0,
-    rgb(255, 132, 255) 0,
+    rgb(252, 103, 252) 0,
     rgb(0, 21, 83) 66.67%,
     rgb(0, 21, 83) 100%
   );
@@ -26,7 +26,7 @@ main {
 
 .title {
   font-family: "Bungee Shade", cursive;
-  font-size: 120px;
+  font-size: 110px;
   margin-bottom: 40px;
   animation: blinking 10s infinite, blinking-container2 10s infinite;
   border-radius: 80px;
@@ -261,24 +261,20 @@ footer {
 .media-container ul li a {
   display: block;
   color: #ffffff;
-  border: 1px solid #ffffff;
+  /* border: 1px solid #ffa8fc; */
+  border: 1px solid #95f3ff;
   border-radius: 10px;
   font-size: 20px;
   text-align: center;
   line-height: 34px;
   transition: 0.2s;
 }
-.linkedin {
-  background-color: rgb(57, 100, 255);
-}
+
 .linkedin:hover {
-  background-color: rgb(56, 149, 255);
-}
-.github {
-  background-color: rgb(70, 0, 113);
+  background-color: rgb(42, 92, 145);
 }
 .github:hover {
-  background-color: rgb(108, 35, 172);
+  background-color: rgb(42, 92, 145);
 }
 
 .copyright {
