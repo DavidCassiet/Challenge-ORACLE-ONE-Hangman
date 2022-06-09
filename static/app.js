@@ -223,6 +223,7 @@ function drawLetter(letter, color, x, y) {
   pencil.font = "bold 50px 'Open Sans', sans-serif";
   pencil.fillStyle = color;
   pencil.fillText(letter, x, y);
+  return pencil;
 }
 
 function drawCorrectLetter(indexes, letter, x, correctLetters) {
