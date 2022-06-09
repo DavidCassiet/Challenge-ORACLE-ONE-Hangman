@@ -30,7 +30,6 @@ const wordsList1 = [
     "ESTABLECIMIENTO",
   ];
 let lines, correctLetters, wrongLetters, x, word, list;
-let pencil;
 
 function chooseDifficulty() {
   homeSection.classList.add("hide");
@@ -82,10 +81,6 @@ function playGame() {
   difficultySection.classList.add("hide");
   gameSection.classList.remove("hide");
   createCanvas();
-
-  pencil = getCurrentContext();
-  pencil.font = "bold 50px 'Open Sans', sans-serif";
-
   game();
 }
 
@@ -224,6 +219,8 @@ function index(word, letter) {
 }
 
 function drawLetter(letter, color, x, y) {
+  pencil = getCurrentContext();
+  pencil.font = "bold 50px 'Open Sans', sans-serif";
   pencil.fillStyle = color;
   pencil.fillText(letter, x, y);
 }
