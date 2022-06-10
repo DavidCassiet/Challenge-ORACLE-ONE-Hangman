@@ -25,12 +25,14 @@ main {
 }
 
 .title {
-  font-family: "Bungee Shade", cursive;
+  font-family: "Orbitron", sans-serif;
   font-size: 110px;
   margin-bottom: 40px;
   animation: blinking 10s infinite, blinking-container2 10s infinite;
   border-radius: 80px;
-  padding: 20px 40px 40px;
+  padding: 40px;
+  padding-top: 20px;
+  padding-left: 44px;
 }
 
 .home-buttons {
@@ -45,7 +47,7 @@ main {
   height: 50px;
   background: rgba(0, 48, 92, 0.611);
   font-size: 20px;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Orbitron", sans-serif;
   color: white;
   border-radius: 30px;
   border: 2px solid rgb(141, 242, 255);
@@ -117,13 +119,16 @@ main {
   filter: none;
 }
 .card:hover .sub-easy {
-  color: rgb(19, 228, 255);
+  color: rgb(190, 247, 255);
+  text-shadow: 0px 0px 4px rgb(0, 0, 151), 0px 0px 10px rgb(119, 244, 248);
 }
 .card:hover .sub-normal {
-  color: rgb(251, 255, 33);
+  color: rgb(254, 255, 200);
+  text-shadow: 0px 0px 4px rgb(151, 143, 0), 0px 0px 10px rgb(248, 218, 119);
 }
 .card:hover .sub-hard {
-  color: rgb(255, 18, 18);
+  color: rgb(255, 199, 199);
+  text-shadow: 0px 0px 4px rgb(151, 0, 0), 0px 0px 10px rgb(248, 119, 119);
 }
 
 .img {
@@ -162,6 +167,8 @@ main {
 .subtitle {
   margin-top: 10px;
   font-size: 26px;
+  font-family: "Orbitron", sans-serif;
+  letter-spacing: 1px;
   font-weight: bold;
 }
 .description {
@@ -176,7 +183,7 @@ main {
   height: 40px;
   margin: 20px;
   font-size: 20px;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Orbitron", sans-serif;
   left: calc(50% - 75px);
   border: 2px solid rgb(250, 108, 255);
   border-radius: 10px;
@@ -212,15 +219,16 @@ main {
   border-radius: 25px;
   width: 45%;
   min-width: 400px;
-  height: 50%;
+  height: 30%;
   animation: blinking-container 10s infinite;
 }
 .input {
   width: 96%;
   background: none;
-  padding: 20px;
+  padding: 18px;
   border: none;
-  color: white;
+  color: rgb(227, 254, 255);
+  text-shadow: 0px 0px 4px rgb(151, 0, 151), 0px 0px 10px rgb(248, 119, 248);
   font-family: "Montserrat", sans-serif;
   font-size: 30px;
 }
@@ -230,6 +238,7 @@ main {
 }
 .input::placeholder {
   color: rgba(245, 245, 245, 0.603);
+  text-shadow: none;
 }
 .input-info {
   color: rgb(149, 174, 212);
@@ -277,6 +286,7 @@ footer {
   margin-top: 10px;
   font-size: 12px;
   font-family: "Orbitron", sans-serif;
+  text-shadow: 0px 0px 4px rgb(248, 119, 248), 0px 0px 1px rgb(151, 0, 151);
 }
 
 /* Hide section */
@@ -286,78 +296,157 @@ footer {
 
 /* Alert */
 .win-title {
-  color: rgb(52, 175, 0);
-  font-size: 40px;
-  font-weight: bold;
+  color: rgb(222, 255, 207);
+  text-shadow: 0px 0px 20px rgb(29, 251, 0), 0px 0px 4px rgb(2, 97, 0);
+  font-size: 34px;
+  font-family: "Orbitron", sans-serif;
 }
 .lose-title {
-  color: rgb(196, 3, 3);
-  font-size: 40px;
-  font-weight: bold;
+  color: rgb(255, 207, 207);
+  text-shadow: 0px 0px 20px rgb(251, 0, 0), 0px 0px 4px rgb(151, 0, 0);
+  font-size: 34px;
+  font-family: "Orbitron", sans-serif;
 }
 .alert-text {
   margin-top: 16px;
-  font-size: 24px;
+  font-size: 22px;
 }
 .alert-text b {
   color: rgb(255, 0, 0);
   font-weight: bold;
 }
 
+.alert-button {
+  width: 100px;
+  padding: 8px;
+  color: white;
+  font-size: 20px;
+  font-family: "Orbitron", sans-serif;
+  background-color: rgb(88, 44, 129);
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  transition: all ease-in-out 0.2s;
+}
+.alert-button:hover {
+  cursor: pointer;
+  background-color: rgb(121, 62, 176);
+}
+
 /* Animations */
 
 @keyframes blinking {
   0% {
-    color: rgb(255, 227, 253);
-    text-shadow: 0px 0px 40px rgb(248, 119, 248), 0px 0px 10px rgb(151, 0, 151);
+    color: rgb(255, 255, 255);
+    text-shadow: 0px 0px 4px rgb(229, 167, 231), -1px 1px 1px rgb(229, 167, 231),
+    -2px 2px 1px rgb(229, 167, 231), -3px 3px 1px rgb(229, 167, 231),
+    -4px 4px 1px rgb(229, 167, 231), -5px 5px 1px rgb(229, 167, 231),
+    -6px 6px 1px rgb(229, 167, 231), -7px 7px 1px rgb(229, 167, 231),
+    -8px 8px 1px rgb(229, 167, 231), -9px 9px 10px #ff00ff,
+    -10px 10px 50px rgb(255, 111, 255);
   }
   39% {
-    color: rgb(255, 227, 253);
-    text-shadow: 0px 0px 40px rgb(248, 119, 248), 0px 0px 10px rgb(151, 0, 151);
+    color: rgb(255, 255, 255);
+    text-shadow: 0px 0px 4px rgb(229, 167, 231), -1px 1px 1px rgb(229, 167, 231),
+    -2px 2px 1px rgb(229, 167, 231), -3px 3px 1px rgb(229, 167, 231),
+    -4px 4px 1px rgb(229, 167, 231), -5px 5px 1px rgb(229, 167, 231),
+    -6px 6px 1px rgb(229, 167, 231), -7px 7px 1px rgb(229, 167, 231),
+    -8px 8px 1px rgb(229, 167, 231), -9px 9px 10px #ff00ff,
+    -10px 10px 50px rgb(255, 111, 255);
   }
   40% {
-    color: rgba(255, 144, 249, 0.582);
-    text-shadow: none;
+    color: rgb(188, 127, 197);
+    text-shadow: 0px 0px 4px rgb(160, 108, 168), -1px 1px 1px rgb(160, 108, 168),
+    -2px 2px 1px rgb(160, 108, 168), -3px 3px 1px rgb(160, 108, 168),
+    -4px 4px 1px rgb(160, 108, 168), -5px 5px 1px rgb(160, 108, 168),
+    -6px 6px 1px rgb(160, 108, 168), -7px 7px 1px rgb(160, 108, 168),
+    -8px 8px 1px rgb(160, 108, 168);
   }
   42% {
-    color: rgb(255, 227, 253);
-    text-shadow: 0px 0px 40px rgb(248, 119, 248), 0px 0px 10px rgb(151, 0, 151);
+    color: rgb(255, 255, 255);
+    text-shadow: 0px 0px 4px rgb(229, 167, 231), -1px 1px 1px rgb(229, 167, 231),
+    -2px 2px 1px rgb(229, 167, 231), -3px 3px 1px rgb(229, 167, 231),
+    -4px 4px 1px rgb(229, 167, 231), -5px 5px 1px rgb(229, 167, 231),
+    -6px 6px 1px rgb(229, 167, 231), -7px 7px 1px rgb(229, 167, 231),
+    -8px 8px 1px rgb(229, 167, 231), -9px 9px 10px #ff00ff,
+    -10px 10px 50px rgb(255, 111, 255);
   }
   68% {
-    color: rgb(255, 227, 253);
-    text-shadow: 0px 0px 40px rgb(248, 119, 248), 0px 0px 10px rgb(151, 0, 151);
+    color: rgb(255, 255, 255);
+    text-shadow: 0px 0px 4px rgb(229, 167, 231), -1px 1px 1px rgb(229, 167, 231),
+    -2px 2px 1px rgb(229, 167, 231), -3px 3px 1px rgb(229, 167, 231),
+    -4px 4px 1px rgb(229, 167, 231), -5px 5px 1px rgb(229, 167, 231),
+    -6px 6px 1px rgb(229, 167, 231), -7px 7px 1px rgb(229, 167, 231),
+    -8px 8px 1px rgb(229, 167, 231), -9px 9px 10px #ff00ff,
+    -10px 10px 50px rgb(255, 111, 255);
   }
   69% {
-    color: rgba(255, 144, 249, 0.582);
-    text-shadow: none;
+    color: rgb(188, 127, 197);
+    text-shadow: 0px 0px 4px rgb(160, 108, 168), -1px 1px 1px rgb(160, 108, 168),
+    -2px 2px 1px rgb(160, 108, 168), -3px 3px 1px rgb(160, 108, 168),
+    -4px 4px 1px rgb(160, 108, 168), -5px 5px 1px rgb(160, 108, 168),
+    -6px 6px 1px rgb(160, 108, 168), -7px 7px 1px rgb(160, 108, 168),
+    -8px 8px 1px rgb(160, 108, 168);
   }
   75% {
-    color: rgba(255, 144, 249, 0.582);
-    text-shadow: none;
+    color: rgb(188, 127, 197);
+    text-shadow: 0px 0px 4px rgb(160, 108, 168), -1px 1px 1px rgb(160, 108, 168),
+    -2px 2px 1px rgb(160, 108, 168), -3px 3px 1px rgb(160, 108, 168),
+    -4px 4px 1px rgb(160, 108, 168), -5px 5px 1px rgb(160, 108, 168),
+    -6px 6px 1px rgb(160, 108, 168), -7px 7px 1px rgb(160, 108, 168),
+    -8px 8px 1px rgb(160, 108, 168);
   }
   76% {
-    color: rgb(198, 173, 219);
-    text-shadow: 0px 0px 20px rgb(229, 15, 229);
+    color: rgb(255, 255, 255);
+    text-shadow: 0px 0px 4px rgb(229, 167, 231), -1px 1px 1px rgb(229, 167, 231),
+    -2px 2px 1px rgb(229, 167, 231), -3px 3px 1px rgb(229, 167, 231),
+    -4px 4px 1px rgb(229, 167, 231), -5px 5px 1px rgb(229, 167, 231),
+    -6px 6px 1px rgb(229, 167, 231), -7px 7px 1px rgb(229, 167, 231),
+    -8px 8px 1px rgb(229, 167, 231), -9px 9px 10px #ff00ff,
+    -10px 10px 50px rgb(255, 111, 255);
   }
   77% {
-    color: rgb(198, 173, 219);
-    text-shadow: 0px 0px 20px rgb(229, 15, 229);
+    color: rgb(255, 255, 255);
+    text-shadow: 0px 0px 4px rgb(229, 167, 231), -1px 1px 1px rgb(229, 167, 231),
+    -2px 2px 1px rgb(229, 167, 231), -3px 3px 1px rgb(229, 167, 231),
+    -4px 4px 1px rgb(229, 167, 231), -5px 5px 1px rgb(229, 167, 231),
+    -6px 6px 1px rgb(229, 167, 231), -7px 7px 1px rgb(229, 167, 231),
+    -8px 8px 1px rgb(229, 167, 231), -9px 9px 10px #ff00ff,
+    -10px 10px 50px rgb(255, 111, 255);
   }
   78% {
-    color: rgba(255, 144, 249, 0.582);
-    text-shadow: none;
+    color: rgb(188, 127, 197);
+    text-shadow: 0px 0px 4px rgb(160, 108, 168), -1px 1px 1px rgb(160, 108, 168),
+    -2px 2px 1px rgb(160, 108, 168), -3px 3px 1px rgb(160, 108, 168),
+    -4px 4px 1px rgb(160, 108, 168), -5px 5px 1px rgb(160, 108, 168),
+    -6px 6px 1px rgb(160, 108, 168), -7px 7px 1px rgb(160, 108, 168),
+    -8px 8px 1px rgb(160, 108, 168);
   }
   80% {
-    color: rgba(255, 144, 249, 0.582);
-    text-shadow: none;
+    color: rgb(188, 127, 197);
+    text-shadow: 0px 0px 4px rgb(160, 108, 168), -1px 1px 1px rgb(160, 108, 168),
+    -2px 2px 1px rgb(160, 108, 168), -3px 3px 1px rgb(160, 108, 168),
+    -4px 4px 1px rgb(160, 108, 168), -5px 5px 1px rgb(160, 108, 168),
+    -6px 6px 1px rgb(160, 108, 168), -7px 7px 1px rgb(160, 108, 168),
+    -8px 8px 1px rgb(160, 108, 168);
   }
   81% {
-    color: rgb(255, 227, 253);
-    text-shadow: 0px 0px 40px rgb(248, 119, 248), 0px 0px 10px rgb(151, 0, 151);
+    color: rgb(255, 255, 255);
+    text-shadow: 0px 0px 4px rgb(229, 167, 231), -1px 1px 1px rgb(229, 167, 231),
+    -2px 2px 1px rgb(229, 167, 231), -3px 3px 1px rgb(229, 167, 231),
+    -4px 4px 1px rgb(229, 167, 231), -5px 5px 1px rgb(229, 167, 231),
+    -6px 6px 1px rgb(229, 167, 231), -7px 7px 1px rgb(229, 167, 231),
+    -8px 8px 1px rgb(229, 167, 231), -9px 9px 10px #ff00ff,
+    -10px 10px 50px rgb(255, 111, 255);
   }
   100% {
-    color: rgb(255, 227, 253);
-    text-shadow: 0px 0px 40px rgb(248, 119, 248), 0px 0px 10px rgb(151, 0, 151);
+    color: rgb(255, 255, 255);
+    text-shadow: 0px 0px 4px rgb(229, 167, 231), -1px 1px 1px rgb(229, 167, 231),
+    -2px 2px 1px rgb(229, 167, 231), -3px 3px 1px rgb(229, 167, 231),
+    -4px 4px 1px rgb(229, 167, 231), -5px 5px 1px rgb(229, 167, 231),
+    -6px 6px 1px rgb(229, 167, 231), -7px 7px 1px rgb(229, 167, 231),
+    -8px 8px 1px rgb(229, 167, 231), -9px 9px 10px #ff00ff,
+    -10px 10px 50px rgb(255, 111, 255);
   }
 }
 @keyframes blinking-container {

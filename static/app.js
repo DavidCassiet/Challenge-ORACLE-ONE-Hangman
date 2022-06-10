@@ -3,7 +3,10 @@ const homeSection = document.querySelector("#home"),
   gameSection = document.querySelector("#game"),
   addWordSection = document.querySelector("#addWord"),
   canvasContainer = document.querySelector(".canvas-container"),
-  input = document.querySelector(".input");
+  input = document.querySelector(".input"),
+  canvas = document.querySelector("canvas"),
+  paintBrush = canvas.getContext("2d");
+paintBrush.font = "50px 'Open Sans', sans-serif";
 
 const wordsList1 = [
     "PLATO",
@@ -80,7 +83,7 @@ function cancel() {
 function playGame() {
   difficultySection.classList.add("hide");
   gameSection.classList.remove("hide");
-  createCanvas();
+  clearCanvas();
   game();
 }
 
@@ -125,17 +128,13 @@ function goHome() {
 
 function newGame() {
   removeListeners();
-  let canvas = document.querySelector("canvas"),
-    context = canvas.getContext("2d");
-  context.clearRect(0, 0, canvas.width, canvas.height);
-  context.beginPath();
+  clearCanvas();
   game();
 }
 
 function desist() {
   removeListeners();
-  let canvas = document.querySelector("canvas");
-  canvasContainer.removeChild(canvas);
+
   gameSection.classList.add("hide");
   difficultySection.classList.remove("hide");
 }
@@ -148,11 +147,9 @@ function getCurrentContext() {
   return document.querySelector("canvas").getContext("2d");
 }
 
-function createCanvas() {
-  let canvas = document.createElement("canvas");
-  canvas.width = "1200";
-  canvas.height = "700";
-  canvasContainer.appendChild(canvas);
+function clearCanvas() {
+  paintBrush.clearRect(0, 0, canvas.width, canvas.height);
+  paintBrush.beginPath();
 }
 
 function chooseWord() {
@@ -175,12 +172,11 @@ function chooseWord() {
 }
 
 function drawLine(word) {
-  const paintBrush = getCurrentContext(),
-    positionsList = [];
+  const positionsList = [];
   let x = 600 - 39 * word.length;
 
   for (let i = 0; i < word.length; i++) {
-    draw(paintBrush, 4, x, 580, x + 60, 580);
+    draw(2, x, 580, x + 60, 580, drawShadow("rgb(58, 111, 255)", 10));
     positionsList.push(x);
     x += 80;
   }
@@ -218,20 +214,20 @@ function index(word, letter) {
   }
 }
 
-function drawLetter(letter, color, x, y) {
-  pencil = getCurrentContext();
-  pencil.font = "bold 50px 'Open Sans', sans-serif";
-  pencil.fillStyle = color;
-  pencil.fillText(letter, x, y);
-  return pencil;
+function drawLetter(letter, color, shadowColor, x, y) {
+  paintBrush.beginPath();
+  drawShadow(shadowColor, 12);
+  paintBrush.fillStyle = color;
+  paintBrush.fillText(letter, x, y);
 }
 
 function drawCorrectLetter(indexes, letter, x, correctLetters) {
   indexes.forEach((index) => {
     drawLetter(
       letter,
-      "rgb(255, 225, 0)",
-      x[index] + (30 - pencil.measureText(letter).width / 2),
+      "rgb(237, 255, 221)",
+      "rgb(0, 239, 11)",
+      x[index] + (30 - paintBrush.measureText(letter).width / 2),
       570
     );
     correctLetters.push(letter);
@@ -239,62 +235,76 @@ function drawCorrectLetter(indexes, letter, x, correctLetters) {
 }
 
 function drawWrongLetter(letter, x) {
-  drawLetter(letter, "rgb(255, 0, 120)", x, 660);
-  return (x += pencil.measureText(letter).width + 15);
+  drawLetter(letter, "rgb(255, 205, 210)", "rgb(255, 0, 0 )", x, 660);
+  return (x += paintBrush.measureText(letter).width + 15);
 }
 
-function draw(paintBrush, thickness, xInitial, yInitial, xFinal, yFinal) {
+function draw(thickness, xInitial, yInitial, xFinal, yFinal, shadow) {
   paintBrush.lineWidth = thickness;
   paintBrush.strokeStyle = "rgb(26, 248, 255)";
   paintBrush.beginPath();
+  shadow;
   paintBrush.moveTo(xInitial, yInitial);
   paintBrush.lineTo(xFinal, yFinal);
   paintBrush.stroke();
 }
 
+function drawShadow(color, blur) {
+  paintBrush.shadowColor = color;
+  paintBrush.shadowBlur = blur;
+}
+
 function drawHangman(failures) {
-  const paintBrush = getCurrentContext();
+  let color = "rgb(58, 111, 255)";
+  let blur = 10;
 
   switch (failures) {
     case 1:
-      draw(paintBrush, 10, 500, 445, 500, 90);
+      draw(10, 500, 445, 500, 90, drawShadow(color, blur));
+      draw(30, 440, 460, 760, 460, drawShadow(color, blur));
       break;
     case 2:
-      draw(paintBrush, 10, 485, 105, 680, 105);
-      draw(paintBrush, 10, 500, 180, 575, 105);
+      draw(10, 485, 105, 680, 105, drawShadow(color, blur));
+      draw(10, 500, 180, 575, 105, drawShadow(color, blur));
       break;
     case 3:
-      draw(paintBrush, 4, 670, 105, 670, 170);
+      draw(4, 670, 110, 670, 170, drawShadow(color, blur));
       break;
     case 4:
       paintBrush.fillStyle = "rgb(26, 248, 255)";
       paintBrush.beginPath();
+      drawShadow(color, blur);
       paintBrush.arc(670, 202, 34, 0, 2 * 3.14);
       paintBrush.stroke();
       break;
     case 5:
-      draw(paintBrush, 10, 670, 236, 670, 246);
-      draw(paintBrush, 24, 670, 246, 670, 310);
+      draw(10, 670, 236, 670, 246, drawShadow(color, blur));
+      draw(24, 670, 246, 670, 310, drawShadow(color, blur));
       break;
     case 6:
-      draw(paintBrush, 18, 668, 306, 633, 370);
+      draw(18, 668, 306, 633, 370, drawShadow(color, blur));
+      draw(24, 670, 246, 670, 310, drawShadow("", 0));
       break;
     case 7:
-      draw(paintBrush, 18, 672, 306, 707, 370);
+      draw(18, 672, 306, 707, 370, drawShadow(color, blur));
+      draw(18, 668, 306, 633, 370, drawShadow("", 0));
+      draw(24, 670, 246, 670, 310, drawShadow("", 0));
       break;
     case 8:
-      draw(paintBrush, 14, 666, 250, 633, 310);
+      draw(14, 666, 250, 633, 310, drawShadow(color, blur));
+      draw(24, 670, 246, 670, 310, drawShadow("", 0));
       break;
     case 9:
-      draw(paintBrush, 14, 674, 250, 707, 310);
+      draw(14, 674, 250, 707, 310, drawShadow(color, blur));
+      draw(24, 670, 246, 670, 310, drawShadow(color, blur));
 
-      draw(paintBrush, 4, 650, 194, 664, 208);
-      draw(paintBrush, 4, 650, 208, 664, 194);
-      draw(paintBrush, 4, 674, 194, 688, 208);
-      draw(paintBrush, 4, 674, 208, 688, 194);
+      draw(4, 650, 194, 664, 208, drawShadow(color, blur));
+      draw(4, 650, 208, 664, 194, drawShadow(color, blur));
+      draw(4, 674, 194, 688, 208, drawShadow(color, blur));
+      draw(4, 674, 208, 688, 194, drawShadow(color, blur));
       break;
     default:
-      draw(paintBrush, 30, 440, 460, 760, 460);
+      draw(30, 440, 460, 760, 460, drawShadow(color, blur));
       break;
   }
 }

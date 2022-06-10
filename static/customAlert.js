@@ -5,19 +5,19 @@ const customAlert = (param) => {
     html =
       '<h1 class="win-title">¡Ganaste, Felicidades!<h1> <p class="alert-text">Tremendo IQ.</p>';
     color = "black";
-    padding = "40px 0";
-    background = "rgb(225, 255, 215)";
+    padding = "30px 0";
+    background = "rgb(234, 255, 229)";
   } else if (param === 2) {
     html = `
     <h1 class="lose-title">¡Fin del juego!<h1> 
     <p class="alert-text">La palabra era: <b>${word}</b></p>
     `;
     color = "black";
-    padding = "40px 0";
-    background = "rgb(255, 215, 215)";
+    padding = "30px 0";
+    background = "rgb(255, 227, 227)";
   } else {
     if (param === 3) {
-      text = "Solo se permiten palabras entre 4 y 16 letras.";
+      text = "Solo palabras entre 4 y 16 letras.";
     } else if (param === 4) {
       text = "La palabra ya se encuentra en juego.";
     } else if (param === 5) {
@@ -25,11 +25,14 @@ const customAlert = (param) => {
     } else if (param === 6) {
       text = "Caracteres inválidos.";
     }
-    title = "Inválido";
+    html = `
+    <h1 class="lose-title">Inválido<h1> 
+    <p class="alert-text">${text}</p>
+    `;
     icon = "error";
-    iconColor = "rgb(160, 0, 0)";
+    iconColor = "rgb(190, 0, 0)";
     color = "white";
-    background = "rgb(172, 109, 206)";
+    background = "rgb(182, 157, 255)";
   }
 
   Swal.fire({
@@ -42,5 +45,9 @@ const customAlert = (param) => {
     background: background,
     color: color,
     padding: padding,
+    buttonsStyling: false,
+    customClass: {
+      confirmButton: "alert-button",
+    },
   });
 };
