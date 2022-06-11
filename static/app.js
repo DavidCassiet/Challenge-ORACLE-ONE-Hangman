@@ -39,39 +39,57 @@ function chooseDifficulty() {
   difficultySection.classList.remove("hide");
 }
 
-function addWord() {
+function addWordPage() {
   homeSection.classList.add("hide");
   addWordSection.classList.remove("hide");
+  input.focus();
+}
+
+function addWord() {
+  if (validateWord()) {
+    customAlert(3);
+    setTimeout(() => {
+      input.focus();
+    }, 2000);
+  }
 }
 
 function addWordAndPlay() {
-  let wordInput = input.value.toUpperCase(),
-    wordLength = wordInput.length;
+  if (validateWord()) {
+    addWordSection.classList.add("hide");
+    chooseDifficulty();
+  }
+}
 
-  if (
+function validateWord() {
+  let wordInput = input.value.toUpperCase().trim(),
+    wordLength = wordInput.length,
+    validity = false;
+
+  if (wordLength < 4 || wordLength > 16) {
+    customAlert(4);
+  } else if (
     wordsList1.includes(wordInput) ||
     wordsList2.includes(wordInput) ||
     wordsList3.includes(wordInput)
   ) {
-    customAlert(4);
-  } else if (wordInput.trim().includes(" ")) {
     customAlert(5);
-  } else if (!input.checkValidity()) {
+  } else if (wordInput.includes(" ")) {
     customAlert(6);
-  } else if (wordLength >= 4 && wordLength <= 16) {
-    if (wordLength >= 4 && wordLength < 8) {
-      wordsList1.push(wordInput.trim());
-    } else if (wordLength >= 8 && wordLength < 12) {
-      wordsList2.push(wordInput.trim());
+  } else if (!input.checkValidity()) {
+    customAlert(7);
+  } else {
+    if (wordLength >= 4 && wordLength <= 7) {
+      wordsList1.push(wordInput);
+    } else if (wordLength >= 8 && wordLength <= 11) {
+      wordsList2.push(wordInput);
     } else if (wordLength >= 12 && wordLength <= 16) {
-      wordsList3.push(wordInput.trim());
+      wordsList3.push(wordInput);
     }
     input.value = "";
-    addWordSection.classList.add("hide");
-    chooseDifficulty();
-  } else {
-    customAlert(3);
+    validity = true;
   }
+  return validity;
 }
 
 function cancel() {
@@ -134,17 +152,12 @@ function newGame() {
 
 function desist() {
   removeListeners();
-
   gameSection.classList.add("hide");
   difficultySection.classList.remove("hide");
 }
 
 function removeListeners() {
   document.removeEventListener("keypress", listenKeyboard, false);
-}
-
-function getCurrentContext() {
-  return document.querySelector("canvas").getContext("2d");
 }
 
 function clearCanvas() {
