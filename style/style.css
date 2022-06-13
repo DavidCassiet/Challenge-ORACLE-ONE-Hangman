@@ -15,6 +15,23 @@ main {
   flex: 1 0 auto;
 }
 
+#musicBtn {
+  background: none;
+  position: absolute;
+  right: 0;
+  margin-top: 50px;
+  margin-right: 80px;
+  width: 60px;
+  border: 2px solid rgb(252, 103, 252);
+  border-radius: 10px;
+  color: rgb(252, 103, 252);
+  font-size: 26px;
+}
+#musicBtn:hover {
+  cursor: pointer;
+  color: rgb(255, 171, 255);
+}
+
 /* Home */
 .home {
   display: flex;
@@ -312,6 +329,12 @@ footer {
   font-size: 22px;
 }
 .alert-text b {
+  color: rgb(50, 131, 0);
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.red-b {
   color: rgb(255, 0, 0);
   font-weight: bold;
 }

@@ -5,8 +5,33 @@ const homeSection = document.querySelector("#home"),
   canvasContainer = document.querySelector(".canvas-container"),
   input = document.querySelector(".input"),
   canvas = document.querySelector("canvas"),
-  paintBrush = canvas.getContext("2d");
+  paintBrush = canvas.getContext("2d"),
+  music = document.querySelector("#music"),
+  getInSound = document.querySelector("#getInSound"),
+  backSound = document.querySelector("#backSound"),
+  validSound = document.querySelector("#validSound"),
+  errorSound = document.querySelector("#errorSound"),
+  hoverSound = document.querySelector("#hoverSound"),
+  startSound = document.querySelector("#startSound"),
+  correctSound = document.querySelector("#correctSound"),
+  wrongSound = document.querySelector("#wrongSound"),
+  winSound = document.querySelector("#winSound"),
+  loseSound = document.querySelector("#loseSound"),
+  musicBtn = document.querySelector("#musicBtn"),
+  cards = document.querySelectorAll(".card");
+
 paintBrush.font = "50px 'Open Sans', sans-serif";
+music.volume = 0.02;
+getInSound.volume = 1;
+backSound.volume = 1;
+validSound.volume = 1;
+errorSound.volume = 1;
+hoverSound.volume = 1;
+startSound.volume = 0.5;
+correctSound.volume = 1;
+wrongSound.volume = 1;
+winSound.volume = 0.1;
+loseSound.volume = 0.4;
 
 const wordsList1 = [
     "PLATO",
@@ -34,12 +59,39 @@ const wordsList1 = [
   ];
 let lines, correctLetters, wrongLetters, x, word, list;
 
+function mute() {
+  let icon = musicBtn.firstElementChild,
+    muteIcon = "fa-volume-xmark",
+    volumeIcon = "fa-volume-high";
+  if (music.muted === false) {
+    music.muted = true;
+    icon.classList.remove(volumeIcon);
+    icon.classList.add(muteIcon);
+  } else {
+    music.muted = false;
+    icon.classList.remove(muteIcon);
+    icon.classList.add(volumeIcon);
+  }
+}
+
+function cardSound() {
+  cards.forEach((card) => {
+    card.addEventListener("mouseenter", (e) => {
+      e.stopPropagation();
+      hoverSound.play();
+    });
+  });
+}
+
 function chooseDifficulty() {
+  getInSound.play();
   homeSection.classList.add("hide");
   difficultySection.classList.remove("hide");
+  cardSound();
 }
 
 function addWordPage() {
+  getInSound.play();
   homeSection.classList.add("hide");
   addWordSection.classList.remove("hide");
   input.focus();
@@ -48,6 +100,7 @@ function addWordPage() {
 function addWord() {
   if (validateWord()) {
     customAlert(3);
+    validSound.play();
     setTimeout(() => {
       input.focus();
     }, 2000);
@@ -56,6 +109,7 @@ function addWord() {
 
 function addWordAndPlay() {
   if (validateWord()) {
+    validSound.play();
     addWordSection.classList.add("hide");
     chooseDifficulty();
   }
@@ -68,16 +122,20 @@ function validateWord() {
 
   if (wordLength < 4 || wordLength > 16) {
     customAlert(4);
+    errorSound.play();
   } else if (
     wordsList1.includes(wordInput) ||
     wordsList2.includes(wordInput) ||
     wordsList3.includes(wordInput)
   ) {
     customAlert(5);
+    errorSound.play();
   } else if (wordInput.includes(" ")) {
     customAlert(6);
+    errorSound.play();
   } else if (!input.checkValidity()) {
     customAlert(7);
+    errorSound.play();
   } else {
     if (wordLength >= 4 && wordLength <= 7) {
       wordsList1.push(wordInput);
@@ -93,6 +151,7 @@ function validateWord() {
 }
 
 function cancel() {
+  backSound.play();
   addWordSection.classList.add("hide");
   homeSection.classList.remove("hide");
   input.value = "";
@@ -106,6 +165,7 @@ function playGame() {
 }
 
 function game() {
+  startSound.play();
   word = chooseWord();
   lines = drawLine(word);
   correctLetters = [];
@@ -122,7 +182,11 @@ function listenKeyboard(event) {
 
   if (indexes && !correctLetters.includes(letter)) {
     drawCorrectLetter(indexes, letter, lines, correctLetters);
+    if (correctLetters.length < word.length) {
+      correctSound.play();
+    }
     if (correctLetters.length === word.length) {
+      winSound.play();
       removeListeners();
       customAlert(1);
     }
@@ -133,13 +197,17 @@ function listenKeyboard(event) {
     wrongLetters.push(letter);
     drawHangman(wrongLetters.length);
     if (wrongLetters.length === 9) {
+      loseSound.play();
       removeListeners();
       customAlert(2);
+    } else {
+      wrongSound.play();
     }
   }
 }
 
 function goHome() {
+  backSound.play();
   difficultySection.classList.add("hide");
   homeSection.classList.remove("hide");
 }
@@ -151,6 +219,7 @@ function newGame() {
 }
 
 function desist() {
+  backSound.play();
   removeListeners();
   gameSection.classList.add("hide");
   difficultySection.classList.remove("hide");

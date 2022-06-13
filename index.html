@@ -21,7 +21,26 @@
   </head>
 
   <body>
+    <audio
+      id="music"
+      src="media/music.mp3"
+      autoplay
+      loop="true"
+    ></audio>
+    <audio id="startSound" src="media/startGame.mp3"></audio>
+    <audio id="errorSound" src="media/error.mp3"></audio>
+    <audio id="validSound" src="media/valid.mp3"></audio>
+    <audio id="hoverSound" src="media/hover.mp3"></audio>
+    <audio id="getInSound" src="media/getIn.mp3"></audio>
+    <audio id="backSound" src="media/back.mp3"></audio>
+    <audio id="correctSound" src="media/correct.mp3"></audio>
+    <audio id="wrongSound" src="media/wrong.mp3"></audio>
+    <audio id="winSound" src="media/win.mp3"></audio>
+    <audio id="loseSound" src="media/lose.mp3"></audio>
     <main>
+      <button id="musicBtn" onclick="mute()">
+        <i class="fa-solid fa-volume-high"></i>
+      </button>
       <section id="home" class="home">
         <h1 class="title">AHORCADO</h1>
         <div class="home-buttons">

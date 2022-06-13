@@ -12,14 +12,14 @@ const customAlert = (param) => {
 
   if (param === 1) {
     title = "¡Ganaste, Felicidades!";
-    text = "Tremendo IQ.";
+    text = "<b>RESPECT +</b>";
     className = "green-title";
     color = "black";
     padding = "30px 0";
     background = "rgb(212, 251, 202)";
   } else if (param === 2) {
     title = "¡Fin del juego!";
-    text = `La palabra era: <b>${word}</b>`;
+    text = `La palabra era: <b class="red-b">${word}</b>`;
     className = "red-title";
     color = "black";
     padding = "30px 0";
